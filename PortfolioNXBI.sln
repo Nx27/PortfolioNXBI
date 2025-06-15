@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35716.79 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortfolioNXBI", "PortfolioNXBI\PortfolioNXBI\PortfolioNXBI.csproj", "{D86C0524-CF8B-4232-9436-7C7A598C3F5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortfolioNXBI.Client", "PortfolioNXBI\PortfolioNXBI.Client\PortfolioNXBI.Client.csproj", "{CCC11D5F-DCFF-4BC0-B6B3-795D5213E59F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D86C0524-CF8B-4232-9436-7C7A598C3F5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D86C0524-CF8B-4232-9436-7C7A598C3F5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D86C0524-CF8B-4232-9436-7C7A598C3F5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D86C0524-CF8B-4232-9436-7C7A598C3F5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCC11D5F-DCFF-4BC0-B6B3-795D5213E59F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCC11D5F-DCFF-4BC0-B6B3-795D5213E59F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCC11D5F-DCFF-4BC0-B6B3-795D5213E59F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCC11D5F-DCFF-4BC0-B6B3-795D5213E59F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4B85235E-3CAA-497F-9A2A-ADED0CAB6692}
+	EndGlobalSection
+EndGlobal
