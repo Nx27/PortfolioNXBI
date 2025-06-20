@@ -1,0 +1,28 @@
+﻿<div class="NavBar">
+
+  <h4>@NavBarTitleText</h4>
+
+  @if (NavBarContent != null || NavBarContent.Count != 0)
+  {
+    @foreach (var mainPage in NavBarContent.Keys)
+    {
+      <NavComponent PageName="@mainPage" Subpages="@NavBarContent[mainPage]" />
+    }
+  }
+  else
+  {
+    <p>No content available for the navigation bar.</p>
+  }
+</div>
+
+@code {
+  [Parameter] public string NavBarTitleText { get; set; } = "Nxbi";
+  [Parameter]
+  public Dictionary<string, List<string>>? NavBarContent { get; set; }
+      = new Dictionary<string, List<string>>()
+      {
+        { "Home", new List<string>() { "Documentation", ";3" } },
+        { "Components", new List<string>() { "Button", "Input", "Card" , "Conventions" } },
+        { "Utilities", new List<string>() { "Helpers", "Extensions" } }
+      };
+}

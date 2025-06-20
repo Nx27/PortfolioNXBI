@@ -1,0 +1,30 @@
+﻿@inject NavigationManager NavigationManager
+
+<div class="NavBarComponent">
+  <details class="SuperPage" @attributes="GetOpenAttribute()">
+    <summary><span class="FoldOutArrow" />@PageName</summary>
+    @foreach (var subpage in Subpages)
+    {
+      <p><NavLink href="@("/" + subpage)" class="nav-link">@subpage </NavLink></p>
+    }
+  </details>
+</div>
+
+@code {
+  [Parameter] public string PageName { get; set; } = "NavBar";
+  [Parameter] public List<string> Subpages { get; set; } = new List<string>() { "Dummy1", "Dummy2" };
+
+  private Dictionary<string, object>? GetOpenAttribute()
+  {
+    var uri = NavigationManager.Uri;
+    var baseUri = NavigationManager.BaseUri;
+    var currentPath = uri.StartsWith(baseUri) ? uri[baseUri.Length..] : uri;
+    var path = currentPath.Split('?', '#')[0].Trim('/');
+
+    if (Subpages.Any(s => string.Equals(s, path, StringComparison.OrdinalIgnoreCase)))
+    {
+      return new() { { "open", true } };
+    }
+    return null;
+  }
+}

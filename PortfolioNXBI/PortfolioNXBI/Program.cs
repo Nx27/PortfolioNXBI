@@ -1,7 +1,5 @@
-using PortfolioNXBI.Client.Pages;
-using PortfolioNXBI.Components;
-
 namespace PortfolioNXBI;
+using PortfolioNXBI.Components;
 
 public class Program
 {

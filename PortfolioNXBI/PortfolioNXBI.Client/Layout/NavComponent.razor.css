@@ -1,0 +1,33 @@
+﻿.FoldOutArrow {
+  background-color: var(--Primary-Color);
+  margin-right: 5px;
+  height: 5px;
+  width: 5px;
+  display: inline-block;
+  border-radius: 9999999999999999999999999999999px;
+}
+
+summary {
+  list-style: none;
+  align-items: center;
+  display: flex;
+}
+
+details[open] summary {
+  color: var(--Secondary-Color);
+}
+
+details[open] {
+  margin-bottom: 10px;
+}
+
+::deep a.nav-link {
+  display: inline-block;
+  margin-left: 1.5vw;
+  width: max-content;
+  text-decoration: none;
+}
+
+  ::deep a.nav-link.active {
+    color: var(--Secondary-Color);
+  }
