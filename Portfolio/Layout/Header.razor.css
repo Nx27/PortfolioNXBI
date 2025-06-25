@@ -5,7 +5,8 @@
   background-color: #49c5ca;
   width: var(--DefaultOffset);
   height: 100vh;
-  position: fixed;
+  position: sticky;
+  top: 0;
   border-right: 3px solid #080f10;
 }
 

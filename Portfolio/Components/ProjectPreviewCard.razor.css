@@ -1,5 +1,7 @@
 ﻿img{
   border-style: solid;
-  border-width: 21px;
-  border-color: yellow;
+  border-width: 4px;
+  border-color: black;
+  max-height: max-content;
+  width: 18vw;
 }

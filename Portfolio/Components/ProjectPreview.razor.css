@@ -1,0 +1,18 @@
+﻿.ProjectPreviewContent {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px;
+  flex-wrap: wrap;
+}
+
+.ProjectPreview {
+  width: 100%;
+}
+
+.ProjectCard {
+  margin-bottom: 10px;
+}
+
+h3{
+  margin-left: 50px;
+}

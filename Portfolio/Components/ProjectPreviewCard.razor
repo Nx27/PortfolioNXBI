@@ -1,7 +1,18 @@
-﻿<NavLink href=@ProjectUrl><img src=@ImageUrl /></NavLink>
+﻿<NavLink href=@Data.ProjectLink><img src=@Data.ProjectImage /></NavLink>
+<div class="Text">
+  <h3 class="ProjectName">@Data.ProjectName</h3>
+  <p class="ProjectDescription">@Data.ProjectDescription</p>
+</div>
 
 
 @code {
-  [Parameter] public string? ImageUrl { get; set; } = "https://http.cat/100";
-  [Parameter] public string? ProjectUrl { get; set; } = "Project Name";
+  [Parameter] public ProjectData Data { get; set; } = new();
+
+  public class ProjectData
+  {
+    public string? ProjectName { get; set; } = "Project 1";
+    public string? ProjectDescription { get; set; } = "Description for Project 1";
+    public string? ProjectLink { get; set; } = "https://http.cat/404";
+    public string? ProjectImage { get; set; } = "https://http.cat/404";
+  }
 }

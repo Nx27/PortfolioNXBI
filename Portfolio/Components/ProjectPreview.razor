@@ -1,0 +1,17 @@
+﻿<div class="ProjectPreview">
+  <h3>@Title</h3>
+  <div class="ProjectPreviewContent">
+  @foreach (var i in PDList)
+  {
+    <div class="ProjectCard">
+      <ProjectPreviewCard Data="@i"/>
+    </div>
+  }
+  </div>
+</div>
+
+@code {
+  [Parameter] public List<ProjectPreviewCard.ProjectData> PDList { get; set; } = 
+  new List<ProjectPreviewCard.ProjectData>() { new ProjectPreviewCard.ProjectData(), new ProjectPreviewCard.ProjectData(), new ProjectPreviewCard.ProjectData() };
+  [Parameter] public string Title { get; set; } = "My Projects";  
+}
