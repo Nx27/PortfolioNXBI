@@ -13,3 +13,9 @@
 ::deep a.nav-link{
   text-decoration: none;
 }
+
+img{
+  align-self: start;
+  justify-self: start;
+  margin: 5px;
+}

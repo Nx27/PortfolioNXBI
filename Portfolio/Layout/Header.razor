@@ -1,6 +1,6 @@
 ﻿<div class="NavBar">
 
-  <h4>@NavBarTitleText</h4>
+  <img src="/images/logos/Artboard 1.svg"/>
 
   @if (NavBarContent != null || NavBarContent.Count != 0)
   {
@@ -16,7 +16,7 @@
 </div>
 
 @code {
-  [Parameter] public string NavBarTitleText { get; set; } = "Nxbi";
+  
   [Parameter]
   public Dictionary<string, List<string>>? NavBarContent { get; set; }
       = new Dictionary<string, List<string>>()

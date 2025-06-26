@@ -12,7 +12,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Javascript\Canvas\" />
     <Folder Include="wwwroot\fonts\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\js\Canvas.js" />
   </ItemGroup>
 
 </Project>
