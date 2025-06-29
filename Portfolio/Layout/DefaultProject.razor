@@ -1,0 +1,48 @@
+﻿<div className='body'>
+  <div className='generalContent'>
+    <div className='heroContainer'>
+      <div className='heroImage'>
+        <img src={Ascii} alt="Ascii" />
+      </div>
+      <div className='heroText'>
+        <h1>The Journey</h1>
+      </div>
+    </div>
+    <div className='projectDescription'>
+      <h2>Project Description</h2>
+      <div className='descriptionText'>
+        <p>My fist project ever made completely in console with NodeJs</p>
+        <div className='infoWidgets'>
+          <img />
+          <img />
+          <img />
+        </div>
+      </div>
+    </div>
+    <div className='project'>
+      <div className="projectContent">
+        <h2>Dialog system</h2>
+        <p>We were tasked to make up our own story for this console game. This is the flowchart I made for the story. Every ImgIndex is another frame of the story.</p>
+        <img src={FlowchartTheJourney} alt="Flowchart" />
+      </div>
+      <div className="projectContent">
+        <h2>My Ascii art</h2>
+        <p>All the ascii art is made by myself in word here are the three main characters in the story</p>
+        <div className="asciiArt">
+          {AsciiClass.Collection.map((asciiArray, index) => (
+          <div key={index} className="asciiCharacter">
+            <p style={{ fontFamily: 'consolas' }}>
+              {asciiArray.join('\n')}
+            </p>
+            <br />
+          </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+@code {
+  [Parameter] public ProjectPreviewCard.ProjectData Data { get; set; } = new ProjectPreviewCard.ProjectData();
+}

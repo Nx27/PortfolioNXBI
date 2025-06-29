@@ -1,0 +1,35 @@
+name: Deploy Blazor to GitHub Pages
+
+on:
+  push:
+    branches: [master]  # Change this if your default branch is different
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    name: Build and Deploy
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0
+
+      - name: Publish Blazor WebAssembly app
+        run: dotnet publish -c Release -o release
+
+      - name: Set base href in index.html
+        run: |
+          sed -i 's|<base href="/"|<base href="/"|' release/wwwroot/index.html
+
+      - name: Add custom domain CNAME file
+        run: echo "nxbi.nl" > release/wwwroot/CNAME
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./release/wwwroot
+          publish_branch: page

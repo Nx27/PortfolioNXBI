@@ -1,0 +1,24 @@
+﻿@inject HttpClient Http
+
+@if (AsciiArt is null)
+{
+  <p>Loading...</p>
+}
+else
+{
+  @foreach (var artBlock in AsciiArt)
+  {
+    <pre style="font-family: Consolas">
+    @string.Join("\n", artBlock)
+            </pre>
+  }
+}
+
+@code {
+  public string[][]? AsciiArt { get; set; }
+
+  protected override async Task OnInitializedAsync()
+  {
+    AsciiArt = await Http.GetFromJsonAsync<string[][]>("json/Ascii.json");
+  }
+}

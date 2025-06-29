@@ -2,7 +2,7 @@
 
 <div class="NavBarComponent">
   <details class="SuperPage" @attributes="GetOpenAttribute()">
-    <summary><span class="FoldOutArrow" />@PageName</summary>
+    <summary>@PageName</summary>
     @foreach (var subpage in Subpages)
     {
       <p><NavLink href="@("/" + subpage)" class="nav-link">@subpage </NavLink></p>
