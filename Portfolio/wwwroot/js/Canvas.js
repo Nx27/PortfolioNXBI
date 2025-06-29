@@ -1,5 +1,5 @@
-﻿const canvas;
-const ctx;
+﻿var canvas;
+var ctx;
 
 window.drawOnCanvas = function () {
   canvas = document.getElementById('myCanvasIntro');
