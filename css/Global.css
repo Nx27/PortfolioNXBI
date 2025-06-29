@@ -1,0 +1,25 @@
+﻿@font-face {
+  font-family: headers;
+  src: url('/fonts/HomeVideo-BLG6G.ttf');
+}
+
+@font-face {
+  font-family: generalText;
+  src: url('/fonts/MedodicaRegular.otf');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: generalText;
+  color: var(--Black);
+}
+
+#app {
+  display: flex;
+  background-color: var(--LightBlue);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: headers;
+}
