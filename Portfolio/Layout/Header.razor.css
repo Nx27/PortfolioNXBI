@@ -7,7 +7,7 @@
   height: 100vh;
   position: sticky;
   top: 0;
-  border-right: 3px solid #080f10;
+  border-right: 3px solid var(--DarkBlue);
 }
 
 ::deep a.nav-link{
