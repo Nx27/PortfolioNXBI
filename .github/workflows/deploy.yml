@@ -2,7 +2,7 @@ name: Deploy Blazor to GitHub Pages
 
 on:
   push:
-    branches: [master]  # Change this if your default branch is different
+    branches: [master] 
 
 jobs:
   build-deploy:

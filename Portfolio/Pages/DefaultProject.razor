@@ -1,0 +1,17 @@
+﻿@page "/{CurrentProject}"
+@inject HttpClient Http
+
+<img src=" @Data.ProjectImage " />
+<h3>@Data.ProjectName</h3>
+<p>@((MarkupString)Data.PageContent) @Data.ProjectDescription @Data.ProjectLink@Data.ProjectName</p>
+
+
+@code {
+  [Parameter] public string? CurrentProject { get; set; }
+  [Parameter] public ProjectData Data { get; set; } = new ProjectData();
+
+  protected override async Task OnInitializedAsync()
+  {
+    Data = await Http.GetFromJsonAsync<ProjectData>($"json/{CurrentProject}.json");
+  }
+}

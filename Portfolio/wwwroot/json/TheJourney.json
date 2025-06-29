@@ -1,8 +1,7 @@
 {
   "ProjectName": "The Journey",
+  "ProjectLink": "https://http.cat/404",
+  "ProjectImage": "https://http.cat/404",
   "ProjectDescription": "My fist project ever made completely in console with NodeJs",
-  "PageContent": "We were tasked to make up our own story for this console game. This is the flowchart I made for the story. Every ImgIndex is another frame of the story.",
-
-
-
+  "PageContent": "We were tasked to make up our own story for this console game. This is the flowchart I made for the story. Every ImgIndex is another frame of the story. <img src=\"/images/logos/Artboard 1.svg\" alt=\"Example Image\" />"
 }
