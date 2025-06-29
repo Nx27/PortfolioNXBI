@@ -42,7 +42,8 @@ img[b-snybfviw7j]{
   height: 100vh;
   position: sticky;
   top: 0;
-  border-right: 3px solid #080f10;
+  border-right: 4px solid var(--Black);
+  z-index: 1;
 }
 
 [b-dnvwr67m3g] a.nav-link{
