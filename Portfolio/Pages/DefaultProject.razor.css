@@ -1,0 +1,15 @@
+﻿.HeadPort {
+  display: flex;
+  margin: 6vw;
+}
+
+  .HeadPort h1 {
+    writing-mode: vertical-lr;
+    letter-spacing: -20px;
+    text-orientation: upright;
+    text-align: end;
+    overflow: visible;
+    display: block;
+  }
+
+

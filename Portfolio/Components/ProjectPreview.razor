@@ -1,17 +1,37 @@
-﻿<div class="ProjectPreview">
+﻿@inject HttpClient Http
+
+<div class="ProjectPreview">
   <h3>@Title</h3>
   <div class="ProjectPreviewContent">
-  @foreach (var i in PDList)
-  {
-    <div class="ProjectCard">
-      <ProjectPreviewCard Data="@i"/>
-    </div>
-  }
+    @foreach (var i in PDList)
+    {
+      <div class="ProjectCard">
+        <ProjectPreviewCard Data="@i" />
+      </div>
+    }
   </div>
 </div>
 
 @code {
-  [Parameter] public List<ProjectData> PDList { get; set; } = 
-  new List<ProjectData>() { new ProjectData(), new ProjectData(), new ProjectData() };
-  [Parameter] public string Title { get; set; } = "My Projects";  
+  [Parameter]
+  public List<ProjectData> PDList { get; set; } = new();
+  [Parameter] public string Title { get; set; } = "My Projects";
+
+  protected override async Task OnInitializedAsync()
+  {
+    //THE MANIFEST CANT HAVE LESS THAN THREE PROJECTS
+    var manifest = await Http.GetFromJsonAsync<string[]>("json/ProjectManifest.json");
+
+    if (manifest != null)
+    {
+      PDList.Clear();
+      ProjectData? pd;
+      for (int i = 0; i < 3; i++)
+      {
+        pd = await Http.GetFromJsonAsync<ProjectData>($"{manifest[i]}");
+
+        PDList.Add(pd);
+      }
+    }
+  }
 }
