@@ -1,18 +1,22 @@
 ﻿.ProjectPreviewContent {
   display: flex;
-  justify-content: space-between;
-  margin: 50px;
+  gap: 40px;
+  width: 100%;
   flex-wrap: wrap;
 }
 
 .ProjectPreview {
+  margin: 4vw;
+  display: flex;
+  flex-direction: column;
   width: 100%;
 }
 
 .ProjectCard {
   margin-bottom: 10px;
+  width: 18vw;
 }
 
 h3{
-  margin-left: 50px;
+  
 }
