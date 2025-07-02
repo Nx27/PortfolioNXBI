@@ -1,7 +1,13 @@
-﻿img{
+﻿img {
+ box-sizing: border-box;
   border-style: solid;
   border-width: 4px;
   border-color: black;
   max-height: max-content;
   width: 18vw;
 }
+
+p{
+  text-wrap: wrap;
+}
+

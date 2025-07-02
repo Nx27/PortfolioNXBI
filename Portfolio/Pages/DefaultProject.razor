@@ -1,9 +1,11 @@
 ﻿@page "/{CurrentProject}"
 @inject HttpClient Http
 
+<div class="HeadPort">
 <img src=" @Data.ProjectImage " />
-<h3>@Data.ProjectName</h3>
-<p>@((MarkupString)Data.PageContent) @Data.ProjectDescription @Data.ProjectLink@Data.ProjectName</p>
+<h1>@Data.ProjectName </h1>
+</div>
+  <p>@((MarkupString)Data.PageContent) @Data.ProjectDescription @Data.ProjectLink@Data.ProjectName</p>
 
 
 @code {
