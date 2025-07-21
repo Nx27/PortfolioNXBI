@@ -5,7 +5,7 @@
     <summary>@PageName</summary>
     @foreach (var subpage in Subpages)
     {
-      <p><NavLink href="@("/" + subpage)" class="nav-link">@subpage </NavLink></p>
+      <p><NavLink href="@(PageName+ "/" + subpage)" class="nav-link">@subpage </NavLink></p>
     }
   </details>
 </div>

@@ -1,7 +1,14 @@
-﻿.HeadPort {
+﻿.HeadPort > div {
   display: flex;
-  margin: 6vw;
+width: fit-content;
+  border: 4px solid var(--Black);
 }
+
+  .HeadPort img {
+    width: 40vw;
+    height: 30vw;
+    object-fit: cover;
+  }
 
   .HeadPort h1 {
     writing-mode: vertical-lr;
@@ -12,4 +19,14 @@
     display: block;
   }
 
+h5{
+  padding-top: 2em;
+  width: 40vw;
+}
+
+.Project {
+  display: flex;
+  flex-direction: column;
+  margin: 4vw;
+}
 

@@ -1,21 +1,13 @@
 ﻿summary {
   list-style: none;
-  align-items: center;
-  display: flex;
+  text-align: center;
 }
 
-details[open] summary {
-  color: var(--Secondary-Color);
-}
-
-details[open] {
-  margin-bottom: 10px;
+details {
+  text-align: center;
 }
 
 ::deep a.nav-link {
-  display: inline-block;
-  margin-left: 1.5vw;
-  width: max-content;
   text-decoration: none;
 }
 
