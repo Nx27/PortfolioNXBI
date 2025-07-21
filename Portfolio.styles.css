@@ -69,22 +69,14 @@ img[b-dnvwr67m3g]{
 /* /Layout/NavComponent.razor.rz.scp.css */
 summary[b-bs7seeowzj] {
   list-style: none;
-  align-items: center;
-  display: flex;
+  text-align: center;
 }
 
-details[open] summary[b-bs7seeowzj] {
-  color: var(--Secondary-Color);
-}
-
-details[open][b-bs7seeowzj] {
-  margin-bottom: 10px;
+details[b-bs7seeowzj] {
+  text-align: center;
 }
 
 [b-bs7seeowzj] a.nav-link {
-  display: inline-block;
-  margin-left: 1.5vw;
-  width: max-content;
   text-decoration: none;
 }
 
@@ -92,10 +84,17 @@ details[open][b-bs7seeowzj] {
     color: var(--Secondary-Color);
   }
 /* /Pages/DefaultProject.razor.rz.scp.css */
-.HeadPort[b-1zo35c79yg] {
+.HeadPort > div[b-1zo35c79yg] {
   display: flex;
-  margin: 6vw;
+width: fit-content;
+  border: 4px solid var(--Black);
 }
+
+  .HeadPort img[b-1zo35c79yg] {
+    width: 40vw;
+    height: 30vw;
+    object-fit: cover;
+  }
 
   .HeadPort h1[b-1zo35c79yg] {
     writing-mode: vertical-lr;
@@ -106,5 +105,15 @@ details[open][b-bs7seeowzj] {
     display: block;
   }
 
+h5[b-1zo35c79yg]{
+  padding-top: 2em;
+  width: 40vw;
+}
+
+.Project[b-1zo35c79yg] {
+  display: flex;
+  flex-direction: column;
+  margin: 4vw;
+}
 
 /* /Pages/Home.razor.rz.scp.css */
