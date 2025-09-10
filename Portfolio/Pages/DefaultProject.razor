@@ -18,7 +18,6 @@
 
   protected override async Task OnInitializedAsync()
   {
-    CurrentProject = CurrentProject.Replace(" ", "");
     Data = await Http.GetFromJsonAsync<ProjectData>($"json/projects/{CurrentProject}.json");
   }
 }
