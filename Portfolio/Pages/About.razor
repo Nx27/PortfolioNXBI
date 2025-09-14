@@ -1,0 +1,20 @@
+﻿@page "/About"
+<h3>AboutMe</h3>
+<p>
+  Hi I’m Nora, Dutch, @age years old and currently learning software development. 
+  I'm fascinated by all aspects of game development, but I'm particularly drawn to team workflows.
+  As for my hobbies, I spend most of my free time online gaming with friends.
+  We’ve got a nice little all Dutch gaming/development group. I can always ask for support from them if I’m stuck on something.
+  When I’m not calling or vibing with them I’m either coding, learning a language, drawing or working out.
+  My most important qualities from my perspective would probably be my honesty, directness and my drivenness.
+  When introduced to a new subject I will go for it with everything I’ve got. Same goes for taking lead in my project groups.
+  I enjoy making sure that my projects run nice and smooth with proper communication. 
+</p>
+@code {
+  DateTime birthday = new DateTime(2006, 3, 27);
+  int age;
+  protected override void OnInitialized()
+  {
+    age = DateTime.Today.Year - birthday.Year;
+  }
+}

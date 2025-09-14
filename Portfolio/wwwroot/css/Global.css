@@ -9,6 +9,12 @@
 }
 
 * {
+  text-decoration: none;
+ -webkit-font-smoothing: none;
+ font-smooth: never;
+ -moz-osx-font-smoothing: unset;
+  font-size: 1.5vw; 
+  
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -18,10 +24,9 @@
 
 #app {
   width: 100%;
-  height: 100%;
   display: flex;
+  flex-direction: column;
   background-color: var(--LightBlue);
-
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -29,8 +34,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 body {
+  box-sizing: content-box;
   border: 4px solid var(--Black);
   height: 100%;
-  width: 100%;
+  width: calc(100% -8px);
   overflow: auto;
 }

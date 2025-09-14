@@ -1,9 +1,0 @@
-﻿@inject IJSRuntime JS
-<canvas id="myCanvasIntro" width="200" height="200" style="position: absolute;"></canvas>
-
-@code {
-  private async Task ShowAlert()
-  {
-    await JS.InvokeVoidAsync("showAlert", "Hello from Blazor!");
-  }
-}

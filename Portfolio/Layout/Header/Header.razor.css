@@ -1,0 +1,26 @@
+﻿.Header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: var(--DarkBlue);
+  width: 100%;
+  height: 7.5vw;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  border-bottom: 4px solid var(--Black);
+}
+
+img {
+  align-self: start;
+  justify-self: start;
+  width: 5vw;
+  margin: 5px;
+}
+
+.Menu {
+  width:75%;
+  display: flex;
+  margin: 5vw;
+  justify-content: space-between;
+}

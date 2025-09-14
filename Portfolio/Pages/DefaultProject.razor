@@ -15,7 +15,7 @@
 @code {
   [Parameter] public string? CurrentProject { get; set; }
   [Parameter] public ProjectData Data { get; set; } = new ProjectData();
-
+   
   protected override async Task OnInitializedAsync()
   {
     Data = await Http.GetFromJsonAsync<ProjectData>($"json/projects/{CurrentProject}.json");

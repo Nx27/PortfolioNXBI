@@ -1,0 +1,8 @@
+﻿<div>
+	<NavLink href="@Link"><h3>@Name</h3></NavLink>
+</div>
+
+@code {
+	[Parameter] public string? Name { get; set; }
+	[Parameter] public string? Link { get; set; }
+}

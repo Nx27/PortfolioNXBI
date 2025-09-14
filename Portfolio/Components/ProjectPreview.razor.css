@@ -1,20 +1,20 @@
 ﻿.ProjectPreviewContent {
   display: flex;
-  gap: 40px;
   width: 100%;
   flex-wrap: wrap;
+  justify-content: space-between
 }
 
 .ProjectPreview {
-  margin: 4vw;
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding: 20px;
 }
 
 .ProjectCard {
   margin-bottom: 10px;
-  width: 18vw;
+  width: 400px;
 }
 
 h3{

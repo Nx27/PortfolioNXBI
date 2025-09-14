@@ -1,0 +1,23 @@
+﻿<div class="Header">
+  <div class="Logo">
+    <img src="@LogoLink"/>
+    </div>
+  <div class="Menu">
+    @foreach (var item in MenuItems)
+    {
+      <a href="@item"><h6>@item</h6></a>
+    }
+  </div>
+</div>
+
+
+
+@code {
+  [Parameter] public string LogoLink { get; set; } = "./images/logos/Artboard 1.svg";
+  [Parameter] public List<string> MenuItems { get; set; } = new ();
+
+  protected override async Task OnInitializedAsync()
+  {
+    MenuItems = new List<string> { "Home", "Projects", "Blog", "About", "Contact" };
+  }
+}

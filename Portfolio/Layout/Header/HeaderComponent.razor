@@ -1,0 +1,6 @@
+﻿<NavLink href="@Link">@PageName</NavLink>
+
+@code {
+  [Parameter] public string PageName { get; set; } = string.Empty;
+  [Parameter] public string Link { get; set; } = string.Empty;
+}

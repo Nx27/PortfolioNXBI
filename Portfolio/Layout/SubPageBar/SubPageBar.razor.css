@@ -1,0 +1,5 @@
+﻿.SubPageBar {
+  height: 100%;
+  width: 15%;
+  border-right: 4px solid var(--black)
+}
