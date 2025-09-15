@@ -8,21 +8,21 @@ img[b-d91jwnaszd] {
 /* /Components/ProjectPreview.razor.rz.scp.css */
 .ProjectPreviewContent[b-hk8k3dd53e] {
   display: flex;
-  gap: 40px;
   width: 100%;
   flex-wrap: wrap;
+  justify-content: space-between
 }
 
 .ProjectPreview[b-hk8k3dd53e] {
-  margin: 4vw;
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding: 20px;
 }
 
 .ProjectCard[b-hk8k3dd53e] {
   margin-bottom: 10px;
-  width: 18vw;
+  width: 400px;
 }
 
 h3[b-hk8k3dd53e]{
@@ -42,47 +42,65 @@ p[b-snybfviw7j]{
   text-wrap: wrap;
 }
 
-/* /Layout/Header.razor.rz.scp.css */
-.NavBar[b-dnvwr67m3g] {
+/* /Layout/Header/Header.razor.rz.scp.css */
+.Header[b-27maqs40pe] {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: var(--DarkBlue);
+  width: 100%;
+  height: 7.5vw;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  border-bottom: 4px solid var(--Black);
+}
+
+img[b-27maqs40pe] {
+  align-self: start;
+  justify-self: start;
+  width: 5vw;
+  margin: 5px;
+}
+
+.Menu[b-27maqs40pe] {
+  width:75%;
+  display: flex;
+  margin: 5vw;
+  justify-content: space-between;
+}
+/* /Layout/Header/HeaderComponent.razor.rz.scp.css */
+*[b-fih9m6ih3k]{
+  text-decoration: none;
+}
+/* /Layout/MainLayout.razor.rz.scp.css */
+div[b-57rfh191dz] {
+  display: flex;
+}
+
+.Content[b-57rfh191dz] {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--DarkBlue);
-  width: var(--DefaultOffset);
-  height: 100vh;
-  position: sticky;
-  top: 0;
-  border-right: 4px solid var(--Black);
-  z-index: 1;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--LightBlue);
+  padding-bottom: 2vh;
 }
 
-[b-dnvwr67m3g] a.nav-link{
-  text-decoration: none;
+.RightSideSpace[b-57rfh191dz]{
+  width: 15%
 }
-
-img[b-dnvwr67m3g]{
-  align-self: start;
-  justify-self: start;
-  margin: 5px;
+/* /Layout/SubPageBar/SubPageBar.razor.rz.scp.css */
+.SubPageBar[b-z97dcho4y6] {
+  height: 100%;
+  width: 15%;
+  border-right: 4px solid var(--black)
 }
-/* /Layout/MainLayout.razor.rz.scp.css */
-/* /Layout/NavComponent.razor.rz.scp.css */
-summary[b-bs7seeowzj] {
-  list-style: none;
-  text-align: center;
+/* /Layout/SubPageBar/SubPageBarComponent.razor.rz.scp.css */
+div[b-6sgbh26mvi] {
+	border: 4px solid var(--Black);
 }
-
-details[b-bs7seeowzj] {
-  text-align: center;
-}
-
-[b-bs7seeowzj] a.nav-link {
-  text-decoration: none;
-}
-
-  [b-bs7seeowzj] a.nav-link.active {
-    color: var(--Secondary-Color);
-  }
 /* /Pages/DefaultProject.razor.rz.scp.css */
 .HeadPort > div[b-1zo35c79yg] {
   display: flex;
