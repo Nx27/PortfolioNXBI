@@ -17,6 +17,12 @@ jobs:
         with:
           dotnet-version: 8.0
 
+      - name: Install workloads
+        run: dotnet workload install wasm-tools
+
+      - name: Restore dependencies
+        run: dotnet restore
+
       - name: Publish Blazor WebAssembly app
         run: dotnet publish -c Release -o release
 
