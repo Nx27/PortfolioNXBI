@@ -28,7 +28,7 @@ jobs:
 
       - name: Set base href in index.html
         run: |
-           run: sed -i 's|<base href="/" />|<base href="/mijn-repo/" />|' release/wwwroot/index.html
+           run: sed -i 's|<base href="/" />|<base href="/PortfolioNXBI/" />|' release/wwwroot/index.html
 
       - name: Add custom domain CNAME file
         run: echo "nxbi.nl" > release/wwwroot/CNAME
