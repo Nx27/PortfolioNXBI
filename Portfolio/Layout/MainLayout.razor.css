@@ -1,17 +1,18 @@
 ﻿div {
   display: flex;
+  height: 100%;
 }
 
 .Content {
+  padding: var(--GeneralMargin);
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  min-height: 100vh;
+  width: 77%;
   background-color: var(--LightBlue);
   padding-bottom: 2vh;
 }
 
-.RightSideSpace{
-  width: 15%
+.RightSideSpace, .LeftSideSpace{
+  width: var(--FrameWidth);
 }

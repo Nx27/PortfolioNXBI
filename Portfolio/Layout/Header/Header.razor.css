@@ -8,7 +8,12 @@
   position: sticky;
   top: 0;
   z-index: 1;
-  border-bottom: 4px solid var(--Black);
+  border-bottom: var(--PixelBorder) solid var(--Black);
+  border-top: var(--PixelBorder) solid var(--Black);
+}
+
+.Logo {
+  width:   var(--FrameWidth);
 }
 
 img {
@@ -21,6 +26,5 @@ img {
 .Menu {
   width:75%;
   display: flex;
-  margin: 5vw;
   justify-content: space-between;
 }
