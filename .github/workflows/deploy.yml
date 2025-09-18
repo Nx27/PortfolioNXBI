@@ -22,7 +22,7 @@ jobs:
 
       - name: Set base href in index.html
         run: |
-          sed -i 's|<base href="/"|<base href="/"|' release/wwwroot/index.html
+          sed -i 's|<base href="/Home"|<base href="/Home"|' release/wwwroot/index.html
 
       - name: Add custom domain CNAME file
         run: echo "nxbi.nl" > release/wwwroot/CNAME
