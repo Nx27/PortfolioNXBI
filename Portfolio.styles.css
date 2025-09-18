@@ -17,16 +17,11 @@ img[b-d91jwnaszd] {
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 20px;
 }
 
 .ProjectCard[b-hk8k3dd53e] {
   margin-bottom: 10px;
   width: 400px;
-}
-
-h3[b-hk8k3dd53e]{
-  
 }
 /* /Components/ProjectPreviewCard.razor.rz.scp.css */
 img[b-snybfviw7j] {
@@ -53,7 +48,12 @@ p[b-snybfviw7j]{
   position: sticky;
   top: 0;
   z-index: 1;
-  border-bottom: 4px solid var(--Black);
+  border-bottom: var(--PixelBorder) solid var(--Black);
+  border-top: var(--PixelBorder) solid var(--Black);
+}
+
+.Logo[b-27maqs40pe] {
+  width:   var(--FrameWidth);
 }
 
 img[b-27maqs40pe] {
@@ -66,7 +66,6 @@ img[b-27maqs40pe] {
 .Menu[b-27maqs40pe] {
   width:75%;
   display: flex;
-  margin: 5vw;
   justify-content: space-between;
 }
 /* /Layout/Header/HeaderComponent.razor.rz.scp.css */
@@ -76,26 +75,28 @@ img[b-27maqs40pe] {
 /* /Layout/MainLayout.razor.rz.scp.css */
 div[b-57rfh191dz] {
   display: flex;
+  height: 100%;
 }
 
 .Content[b-57rfh191dz] {
+  padding: var(--GeneralMargin);
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  min-height: 100vh;
+  width: 77%;
   background-color: var(--LightBlue);
   padding-bottom: 2vh;
 }
 
-.RightSideSpace[b-57rfh191dz]{
-  width: 15%
+.RightSideSpace[b-57rfh191dz], .LeftSideSpace[b-57rfh191dz]{
+  width: var(--FrameWidth);
 }
 /* /Layout/SubPageBar/SubPageBar.razor.rz.scp.css */
 .SubPageBar[b-z97dcho4y6] {
   height: 100%;
-  width: 15%;
-  border-right: 4px solid var(--black)
+  width: 100%;
+  border-right: 4px solid var(--Black);
+  background-color: var(--DarkBlue);
 }
 /* /Layout/SubPageBar/SubPageBarComponent.razor.rz.scp.css */
 div[b-6sgbh26mvi] {
