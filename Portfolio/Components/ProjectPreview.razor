@@ -14,7 +14,7 @@
 
 @code {
   [Parameter]
-  public List<ProjectData?> Projects { get; set; } = new();
+  public List<ProjectData> Projects { get; set; } = new();
   [Parameter] public string Title { get; set; } = "My Projects";
 
   protected override async Task OnInitializedAsync()
@@ -26,13 +26,9 @@
     {
       var contentUrls = manifest.Where(x => !string.IsNullOrEmpty(x)).Select(x => x.Trim());
 
-      // Fix: Await all tasks and assign the result to Projects
+      // Fix: Filter out nulls to match List<ProjectData> (not List<ProjectData?>)
       var projectTasks = contentUrls.Select(url => Http.GetFromJsonAsync<ProjectData>($"{url}")).ToList();
-      Projects = (await Task.WhenAll(projectTasks)).ToList();
-
-      // Remove the following block if you only want to load all projects from manifest
-      // If you want to keep only the first 3 projects, use:
-      // Projects = Projects.Take(3).ToList();
+      Projects = (await Task.WhenAll(projectTasks)).Where(p => p != null).ToList()!;
     }
   }
 }
