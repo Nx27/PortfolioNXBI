@@ -3,10 +3,10 @@
 <div class="ProjectPreview">
   <h3>@Title</h3>
   <div class="ProjectPreviewContent">
-    @foreach (var project in Projects)
+    @foreach (var i in PDList)
     {
       <div class="ProjectCard">
-        <ProjectPreviewCard Data="@project" />
+        <ProjectPreviewCard Data="@i" />
       </div>
     }
   </div>
@@ -14,21 +14,24 @@
 
 @code {
   [Parameter]
-  public List<ProjectData> Projects { get; set; } = new();
+  public List<ProjectData> PDList { get; set; } = new();
   [Parameter] public string Title { get; set; } = "My Projects";
 
   protected override async Task OnInitializedAsync()
   {
     //THE MANIFEST CANT HAVE LESS THAN THREE PROJECTS
-    var manifest = await Http.GetFromJsonAsync<List<string>>("json/ProjectManifest.json");
+    var manifest = await Http.GetFromJsonAsync<string[]>("json/ProjectManifest.json");
 
     if (manifest != null)
     {
-      var contentUrls = manifest.Where(x => !string.IsNullOrEmpty(x)).Select(x => x.Trim());
+      PDList.Clear();
+      ProjectData? pd;
+      for (int i = 0; i < 3; i++)
+      {
+        pd = await Http.GetFromJsonAsync<ProjectData>($"{manifest[i]}");
 
-      // Fix: Filter out nulls to match List<ProjectData> (not List<ProjectData?>)
-      var projectTasks = contentUrls.Select(url => Http.GetFromJsonAsync<ProjectData>($"{url}")).ToList();
-      Projects = (await Task.WhenAll(projectTasks)).Where(p => p != null).ToList()!;
+        PDList.Add(pd);
+      }
     }
   }
 }
