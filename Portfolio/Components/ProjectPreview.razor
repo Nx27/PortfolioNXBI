@@ -3,10 +3,10 @@
 <div class="ProjectPreview">
   <h3>@Title</h3>
   <div class="ProjectPreviewContent">
-    @foreach (var i in PDList)
+    @foreach (var project in Projects)
     {
       <div class="ProjectCard">
-        <ProjectPreviewCard Data="@i" />
+        <ProjectPreviewCard Data="@project" />
       </div>
     }
   </div>
@@ -14,24 +14,25 @@
 
 @code {
   [Parameter]
-  public List<ProjectData> PDList { get; set; } = new();
+  public List<ProjectData?> Projects { get; set; } = new();
   [Parameter] public string Title { get; set; } = "My Projects";
 
   protected override async Task OnInitializedAsync()
   {
     //THE MANIFEST CANT HAVE LESS THAN THREE PROJECTS
-    var manifest = await Http.GetFromJsonAsync<string[]>("json/ProjectManifest.json");
+    var manifest = await Http.GetFromJsonAsync<List<string>>("json/ProjectManifest.json");
 
     if (manifest != null)
     {
-      PDList.Clear();
-      ProjectData? pd;
-      for (int i = 0; i < 3; i++)
-      {
-        pd = await Http.GetFromJsonAsync<ProjectData>($"{manifest[i]}");
+      var contentUrls = manifest.Where(x => !string.IsNullOrEmpty(x)).Select(x => x.Trim());
 
-        PDList.Add(pd);
-      }
+      // Fix: Await all tasks and assign the result to Projects
+      var projectTasks = contentUrls.Select(url => Http.GetFromJsonAsync<ProjectData>($"{url}")).ToList();
+      Projects = (await Task.WhenAll(projectTasks)).ToList();
+
+      // Remove the following block if you only want to load all projects from manifest
+      // If you want to keep only the first 3 projects, use:
+      // Projects = Projects.Take(3).ToList();
     }
   }
 }
