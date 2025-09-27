@@ -19,7 +19,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="tools\BlazorStaticWrapperGen\" />
     <Folder Include="wwwroot\fonts\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\staticwebapp.config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <RunAOTCompilation>true</RunAOTCompilation>

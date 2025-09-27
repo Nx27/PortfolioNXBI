@@ -13,7 +13,7 @@
 }
 
 .Logo {
-  width:   var(--FrameWidth);
+  width: calc(var(--FrameWidth) - var(--PixelBorder));
 }
 
 img {
