@@ -9,7 +9,6 @@
   flex-direction: column;
   width: 77%;
   background-color: var(--LightBlue);
-  padding-bottom: 2vh;
 }
 
 .RightSideSpace, .LeftSideSpace{
