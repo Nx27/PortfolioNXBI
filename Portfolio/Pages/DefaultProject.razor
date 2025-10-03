@@ -1,23 +1,10 @@
 ﻿@page "/Projects/{CurrentProject}"
-@inject HttpClient Http
-
-<div class="Project">
-  <div class="HeadPort">
-    <div>
-      <img src=" @Data.ProjectImage " />
-      <h1>@Data.ProjectName </h1>
-    </div>
-    <h5>@Data.ProjectDescription</h5>
-  </div>
-  <p>@((MarkupString)Data.PageContent) </p>
-</div>
 
 @code {
+
+
+
+
+
   [Parameter] public string? CurrentProject { get; set; }
-  [Parameter] public ProjectData Data { get; set; } = new ProjectData();
-   
-  protected override async Task OnInitializedAsync()
-  {
-    Data = await Http.GetFromJsonAsync<ProjectData>($"json/projects/{CurrentProject}.json");
-  }
 }
