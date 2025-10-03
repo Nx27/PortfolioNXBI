@@ -1,0 +1,10 @@
+﻿div {
+  display: flex;
+  border: var(--PixelBorder) solid var(--Black);
+}
+
+img {
+  flex-shrink: 0;
+  object-fit: scale-down;
+  width: 20%
+}

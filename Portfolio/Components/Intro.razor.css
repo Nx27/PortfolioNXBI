@@ -1,3 +1,15 @@
-﻿img {
-  image-rendering: pixelated;
+﻿.IntroContainer {
+  width: 100%;
+}
+
+.RowFlex {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+a > h1 {
+  font-style: italic;
+  text-decoration: underline;
+  display: inline;
 }
