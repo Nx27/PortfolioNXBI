@@ -1,6 +1,8 @@
 ﻿@page "/Projects"
+@using System.Threading.Tasks
+@inject IJSRuntime JS
 
-<div class="ProjectsTimeline">
+<div class="ProjectsTimeline" id="ProjectsTimeline">
 	@foreach (var project in projectDetails)
 	{
 		<div class="PointInTime" id="@project.Name" style="background-image: url(/@project.ImageUrl)">
@@ -14,9 +16,11 @@
 @code {
 	List<ProjectDetails>? projectDetails;
 
-	protected override void OnInitialized()
+	protected override async Task OnInitializedAsync()
 	{
 		projectDetails = ProjectDetails.GetAllProjects();
+		var module = await JS.InvokeAsync<IJSObjectReference>("import", "./JS/PixelDivs.js");
+		await module.InvokeVoidAsync("PixelOverlayDivs", "ProjectsTimeline", 4);
 	}
 
 
