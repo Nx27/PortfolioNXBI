@@ -1,4 +1,5 @@
 ﻿.ProjectsTimeline {
+  box-sizing: border-box;
   height: 100%;
   scroll-snap-type: y mandatory;
   overflow-y: auto;
@@ -6,21 +7,23 @@
   scroll-behavior: smooth;
   scroll-snap-stop: always;
   -ms-overflow-style: none;
+  border: var(--PixelBorder), solid, var(--Black) !important;
   scrollbar-width: none;
 }
 
 .PointInTime {
   height: 100%;
   scroll-snap-align: center;
-  background-color: red;
-  
+  border: var(--PixelBorder), solid, var(--Black);
+
+  background-repeat: no-repeat;
+  background-size: contain;
+
 }
 
 #one{
   background-color: green;
 }
-
-
 
 .ProjectsTimeline::-webkit-scrollbar {
   display: none;

@@ -24,7 +24,12 @@
     {
       if (AllProjects.Count == 0)
       {
-        new ProjectDetails("404", "404", "404", "404", "404", "404");
+        new ProjectDetails("The Journey", "My first console app in NodeJS", "TheJourney", "images/logos/Artboard1.svg", "JS", "1 Week");
+        new ProjectDetails("First basic website", "First web project I ever made", "TheJourney", "404", "HTML, CSS", "1 Week");
+        new ProjectDetails("ColorTD", "Small tower defense game", "ColorTD", "", "C#, UnityEngine, ", "6 Weeks");
+        new ProjectDetails("Hollow Knight Slice", "A copy of a small part of the game", "HollowKnightSlice", "404", "C#, UnityEngine", "4 Weeks");
+        new ProjectDetails("Siepie and Takkie", "An international collaboration project between Sweden and the Netherlands", "SiepieAndTakkieOriginal", "404", "C#, UnityEngine", "3 Weeks");
+        new ProjectDetails("Portfolio", "My personal portfolio website", "Portfolio", "404", "C#, ASP.NET Core, Blazor WASM, HTML, CSS", "2 Weeks");
       }
       return AllProjects;
     }

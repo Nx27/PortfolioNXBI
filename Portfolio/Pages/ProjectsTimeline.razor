@@ -1,18 +1,23 @@
-﻿@page "/ProjectsTimeline"
+﻿@page "/Projects"
 
 <div class="ProjectsTimeline">
-	<div class="PointInTime">
-
-	</div>
-	
-
-
+	@foreach (var project in projectDetails)
+	{
+		<div class="PointInTime" id="@project.Name" style="background-image: url(/@project.ImageUrl)">
+			<h3>@project.Name</h3>
+			<p>@project.Description</p>
+			<p>Languages used: @project.ProgrammingLanguage</p>
+		</div>
+	}
 </div>
 
-
-
 @code {
+	List<ProjectDetails>? projectDetails;
 
+	protected override void OnInitialized()
+	{
+		projectDetails = ProjectDetails.GetAllProjects();
+	}
 
 
 }
