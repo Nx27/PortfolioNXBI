@@ -1,27 +1,39 @@
 ﻿@page "/Projects"
+@implements IAsyncDisposable
 @using System.Threading.Tasks
 @inject IJSRuntime JS
 
 <div class="ProjectsTimeline" id="ProjectsTimeline">
 	@foreach (var project in projectDetails)
 	{
-		<div class="PointInTime" id="@project.Name" style="background-image: url(/@project.ImageUrl)">
+		<div class="PointInTime" id="@project.Name" style="background-image: url(/@project.ImageUrl); z-index: 0">
+			<canvas id="pixelRevealCanvas" style="z-index: -1;"/>
+			<div class="DiscriptionInfo"  style="z-index: -2">
 			<h3>@project.Name</h3>
 			<p>@project.Description</p>
 			<p>Languages used: @project.ProgrammingLanguage</p>
+			</div>
 		</div>
 	}
 </div>
 
 @code {
 	List<ProjectDetails>? projectDetails;
+	IJSObjectReference moduleJS;
 
 	protected override async Task OnInitializedAsync()
 	{
 		projectDetails = ProjectDetails.GetAllProjects();
-		var module = await JS.InvokeAsync<IJSObjectReference>("import", "./JS/PixelDivs.js");
-		await module.InvokeVoidAsync("PixelOverlayDivs", "ProjectsTimeline", 4);
+		moduleJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JS/PixelDivs.js");
+		await moduleJS.InvokeVoidAsync("snapToPixelGrid", "ProjectsTimeline", 4);
 	}
 
-
+	public async ValueTask DisposeAsync()
+	{
+		if (moduleJS is not null)
+		{
+			await moduleJS.InvokeVoidAsync("removeListeners");
+			await moduleJS.DisposeAsync();
+		}
+	}
 }

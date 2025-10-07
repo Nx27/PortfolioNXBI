@@ -1,18 +1,25 @@
-﻿export function PixelOverlayDivs(divId, pixelBorderSize) {
-  let div = document.getElementById(divId);
-  if (!div) { console.warn("no div found"); return };
-  let clientRect = div.getBoundingClientRect();
-  let pixelXAxis = Math.floor(clientRect.width / pixelBorderSize);
-  let pixelYAxis = Math.floor(clientRect.height / pixelBorderSize);
-  let container = document.createElement("Container");
-  div.appendChild(container);
-  for (let i = 0; i < pixelYAxis; i++) {
-    for (let j = 0; j < pixelXAxis; j++) {
-      let pixelDiv = document.createElement("div");
-      pixelDiv.style.width = "4px";
-      pixelDiv.style.height = "4px";
-      pixelDiv.style.zIndex = "-1";
-      container.appendChild(pixelDiv);
-    }
+﻿let PixelSize = 4;
+let Element;
+let ElementID;
+let goOnce = true;
+export function snapToPixelGrid(elementID, pixelSize = 4) {
+  ElementID = elementID;
+  PixelSize = pixelSize; 
+  Element = document.getElementById(ElementID);
+  const rect = Element.getBoundingClientRect();
+  const snappedWidth = Math.ceil(rect.width / pixelSize) * pixelSize;
+  const snappedHeight = Math.ceil(rect.height / pixelSize) * pixelSize;
+
+  Element.style.width = snappedWidth + "px";
+  Element.style.height = snappedHeight + "px";
+  if (goOnce) {
+    window.addEventListener('resize', () => snapToPixelGrid(ElementID, PixelSize));
+    window.addEventListener('load', () => snapToPixelGrid(ElementID, PixelSize));
+    goOnce = false;
   }
+}
+
+export function removeListeners() {
+  window.removeListeners('resize', () => snapToPixelGrid(ElementID, PixelSize));
+  window.removeListeners('load', ()=> snapToPixelGrid(ElementID, PixelSize));
 }
