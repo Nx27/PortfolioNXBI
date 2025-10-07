@@ -27,10 +27,6 @@ canvas {
   pointer-events: none;
 }
 
-#one {
-  background-color: green;
-}
-
 .ProjectsTimeline::-webkit-scrollbar {
   display: none;
 }
