@@ -1,9 +1,9 @@
-﻿<NavLink href=@Link>
-  <div>
-    <h3>StickyNote</h3>
-  </div>
-</NavLink>
-
+﻿<div class="StickyNote">
+	<NavLink href=@Link>
+		<h3>@Text</h3>
+	</NavLink>
+</div>
 @code {
-  [Parameter] public string? Link { get; set; }
+	[Parameter] public string Link { get; set; }
+	[Parameter] public string Text { get; set; } = "404";
 }

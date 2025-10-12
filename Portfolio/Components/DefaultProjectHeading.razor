@@ -1,0 +1,17 @@
+﻿<div class="ProjectPage">
+  <div class="LandingContainer">
+    <div class="Picture" style="background-image: url(@projectDetails.ImageUrl)">
+      <StickyNote Text="@projectDetails.Name" Link="@projectDetails.Url"/>
+    </div>
+  </div>
+</div>
+
+@code {
+  [Parameter] public string CurrentProjectURL { get; set; }
+  ProjectDetails projectDetails;
+
+  protected override void OnInitialized()
+  {
+    projectDetails = ProjectDetails.GetAllProjects().Find(x => x.Url == CurrentProjectURL);
+  }
+}
