@@ -19,21 +19,10 @@
 
 @code {
 	List<ProjectDetails>? projectDetails;
-	IJSObjectReference moduleJS;
-
+	
 	protected override async Task OnInitializedAsync()
 	{
 		projectDetails = ProjectDetails.GetAllProjects();
-		moduleJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JS/PixelDivs.js");
-		await moduleJS.InvokeVoidAsync("snapToPixelGrid", "ProjectsTimeline", 4);
-	}
 
-	public async ValueTask DisposeAsync()
-	{
-		if (moduleJS is not null)
-		{
-			await moduleJS.InvokeVoidAsync("removeListeners");
-			await moduleJS.DisposeAsync();
-		}
 	}
 }
