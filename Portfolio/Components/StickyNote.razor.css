@@ -1,0 +1,19 @@
+﻿div {
+  border: calc(var(--PixelBorder)*2) solid #167f8b;
+  min-width: calc(var(--GeneralMargin) * 4);
+  padding: var(--PixelBorder);
+  height: var(--GeneralMargin);
+  background-color: var(--DarkBlue);
+  align-content: center;
+}
+
+  div:hover, div:hover > h3 {
+    border-color: #167f8b;
+    background-color: #167f8b;
+    color: black;
+  }
+ 
+h3 {
+  color: var(--LightBlue);
+  text-align: center;
+}  

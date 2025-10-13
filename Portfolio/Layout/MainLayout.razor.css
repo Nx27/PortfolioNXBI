@@ -7,7 +7,8 @@
   padding: var(--GeneralMargin);
   display: flex;
   flex-direction: column;
-  width: 77%;
+  width: calc(100% - (var(--FrameWidth) * 2));
+  height: 100%;
   background-color: var(--LightBlue);
 }
 
