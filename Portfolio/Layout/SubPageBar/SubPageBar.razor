@@ -1,5 +1,6 @@
 ﻿@inject NavigationManager Navigation
 @inject HttpClient Http
+@inject SubBarController SubBarController
 
 <div class="SubPageBar">
 	<div class="Title"><h2>SubPage</h2></div>
@@ -10,11 +11,5 @@
 
 
 @code {
-	protected override void OnInitialized()
-	{
-		url = Navigation.ToBaseRelativePath(Navigation.Uri);
-	}
-	[Inject]
-	private NavigationManager NavigationManager { get; set; }
-	string url;
+	
 }
