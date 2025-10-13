@@ -1,9 +1,40 @@
-﻿<div class="StickyNote">
-	<NavLink href=@Link>
-		<h3>@Text</h3>
-	</NavLink>
+﻿@{
+	var targetString = OpenTo switch
+	{
+		TargetType.BlankPage => "_blank",
+		TargetType.Self => "_self",
+		TargetType.Parent => "_parent",
+		TargetType.Top => "_top",
+		_ => "_self"
+	};
+}
+
+<div class="StickyNote">
+	@if (OpenTo != TargetType.Self)
+	{
+		<a href="@Link" target="@targetString">
+			<h3>@Text</h3>
+		</a>
+	}
+	else
+	{
+		<NavLink href="@Link">
+			<h3>@Text</h3>
+		</NavLink>
+	}
+
 </div>
+
 @code {
 	[Parameter] public string Link { get; set; }
 	[Parameter] public string Text { get; set; } = "404";
+	[Parameter] public TargetType OpenTo { get; set; } = TargetType.Self;
+
+	public enum TargetType
+	{
+		BlankPage,
+		Self,
+		Parent,
+		Top
+	}
 }

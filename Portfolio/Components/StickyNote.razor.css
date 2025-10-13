@@ -8,7 +8,7 @@
 }
 
   div:hover, div:hover > h3 {
-    border-color: #096855; 
+    border-color: #167f8b;
     background-color: #167f8b;
     color: black;
   }
