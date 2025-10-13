@@ -1,17 +1,24 @@
 ﻿div {
+  background-image: linear-gradient(rgba(240, 248, 255, 0.9), rgba(240, 248, 255, 0.8)), url(/images/Sunrise.png);
+  image-rendering: pixelated;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   height: 100%;
 }
 
 .Content {
+  opacity: 1;
+  background-image: none;
   padding: var(--GeneralMargin);
   display: flex;
   flex-direction: column;
   width: 77%;
-  background-color: var(--LightBlue);
 }
 
-.RightSideSpace, .LeftSideSpace{
+.RightSideSpace, .LeftSideSpace {
+  opacity: 1;
+  background-image: none;
   width: var(--FrameWidth);
 }
 
