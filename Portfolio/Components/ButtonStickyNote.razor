@@ -1,0 +1,8 @@
+﻿<div class="StickyNote" onclick="OnClick">
+		<h3>@Text</h3>
+</div>
+
+@code {
+	[Parameter] public string Text { get; set; } = "404";
+	[Parameter] public EventCallback OnClick { get; set; }
+}

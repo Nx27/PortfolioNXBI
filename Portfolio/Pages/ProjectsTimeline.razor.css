@@ -1,4 +1,5 @@
 ﻿.ProjectsTimeline {
+  position: relative;
   box-sizing: border-box;
   height: 100%;
   scroll-snap-type: y mandatory;
@@ -7,19 +8,46 @@
   scroll-behavior: smooth;
   scroll-snap-stop: always;
   -ms-overflow-style: none;
-  border: var(--PixelBorder), solid, var(--Black) !important;
   scrollbar-width: none;
 }
 
 .PointInTime {
   height: 100%;
   scroll-snap-align: center;
-  border: var(--PixelBorder), solid, var(--Black);
-
+  border: var(--PixelBorder) solid var(--Black);
   background-repeat: no-repeat;
   background-size: contain;
-
 }
+
+canvas, .DiscriptionInfo {
+  padding: var(--GeneralMargin);
+  scroll-snap-align: unset;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.DiscriptionInfo {
+  display: flex;
+  height: 100%;
+  padding-right: 0;
+}
+
+.NameAndDescription{
+  width: 80%;
+}
+
+.SoftwareStack {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+  .SoftwareStack > ::deep div {
+
+  }
 
 canvas {
   width: 100%;

@@ -6,11 +6,18 @@
 	@foreach (var project in projectDetails)
 	{
 		<div class="PointInTime" id="@project.Name" style="background-image: url(/@project.ImageUrl); z-index: 0">
-			<canvas id="pixelRevealCanvas" style="z-index: -1;"/>
-			<div class="DiscriptionInfo"  style="z-index: -2">
-			<h3>@project.Name</h3>
-			<p>@project.Description</p>
-			<p>Languages used: @project.ProgrammingLanguage</p>
+			<canvas id="pixelRevealCanvas" style="z-index: 1;" />
+			<div class="DiscriptionInfo" style="z-index: 2">
+				<div class="NameAndDescription">
+					<h3>@project.Name</h3>
+					<p>@project.Description</p>
+				</div>
+				<div class="SoftwareStack">
+					@foreach (var software in orderList(project))
+					{
+						<ButtonStickyNote Text="@software"/>
+					}
+				</div>
 			</div>
 		</div>
 	}
@@ -18,10 +25,14 @@
 
 @code {
 	List<ProjectDetails>? projectDetails;
-	
+
 	protected override async Task OnInitializedAsync()
 	{
 		projectDetails = ProjectDetails.GetAllProjects();
+	}
 
+	string[] orderList(ProjectDetails currentProject)
+	{
+		return currentProject.SoftwareStack.OrderBy(x => x.Length).ToArray();
 	}
 }
