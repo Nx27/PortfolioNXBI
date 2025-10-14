@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <None Include="wwwroot\BlogIdeeen.txt" />
+    <None Include="wwwroot\JS\PixelDivs.js" />
   </ItemGroup>
 
   <ItemGroup>
