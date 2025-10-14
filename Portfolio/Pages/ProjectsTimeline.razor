@@ -5,6 +5,7 @@
 <div class="ProjectsTimeline" id="ProjectsTimeline">
 	@foreach (var project in projectDetails)
 	{
+		<NavLink href="@project.Url" style="z-index:1; height: 100%; width: 100%;">
 		<div class="PointInTime" id="@project.Name" style="background-image: url(/@project.ImageUrl); z-index: 0">
 			<canvas id="pixelRevealCanvas" style="z-index: 1;" />
 			<div class="DiscriptionInfo" style="z-index: 2">
@@ -19,7 +20,9 @@
 					}
 				</div>
 			</div>
+		
 		</div>
+		</NavLink>
 	}
 </div>
 
