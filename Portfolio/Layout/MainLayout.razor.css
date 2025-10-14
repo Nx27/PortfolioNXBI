@@ -1,23 +1,23 @@
 ﻿div {
-  background-image: linear-gradient(rgba(240, 248, 255, 0.9), rgba(240, 248, 255, 0.8)), url(/images/Sunrise.png);
+  display: flex;
+  background-image: linear-gradient(rgba(240, 248, 255, 0.95), rgba(240, 248, 255, 0.9)), url(/images/Sunrise.png);
   image-rendering: pixelated;
   background-repeat: no-repeat;
   background-size: cover;
-  display: flex;
-  height: 100%;
+  height: calc(100% - var(--HeaderHeight));
 }
 
 .Content {
-  opacity: 1;
   background-image: none;
   padding: var(--GeneralMargin);
+  padding-bottom:0;
   display: flex;
   flex-direction: column;
-  width: 77%;
+  width: calc(100% - (var(--FrameWidth) * 2));
+  height: 100%;
 }
 
 .RightSideSpace, .LeftSideSpace {
-  opacity: 1;
   background-image: none;
   width: var(--FrameWidth);
 }

@@ -1,7 +1,10 @@
 ﻿.ProjectsTimeline {
-  height: 100%;
+  position: relative;
+  box-sizing: border-box;
+  height: 85%;
   scroll-snap-type: y mandatory;
   overflow-y: auto;
+  overflow-x: visible;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
   scroll-snap-stop: always;
@@ -10,17 +13,59 @@
 }
 
 .PointInTime {
+  margin-left: var(--PixelBorder);
+  margin-right: var(--PixelBorder);
   height: 100%;
+  width: calc( 100% - (var(--PixelBorder)*2));
   scroll-snap-align: center;
-  background-color: red;
-  
+  border: var(--PixelBorder) solid var(--Black);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-#one{
-  background-color: green;
+canvas, .DiscriptionInfo {
+  scroll-snap-align: unset;
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
 
+.DiscriptionInfo {
+  display: flex;
+  height: calc(100% - var(--PixelBorder));
+  width:    100%;
+}
 
+.NameAndDescription {
+  position: relative;
+  left: calc((var(--PixelBorder) * 2)* -1);
+  height: 100%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: start;
+}
+
+.SoftwareStack {
+  height: 100%;
+  width: calc( 20% - (var(--PixelBorder)*2));
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+  .SoftwareStack > ::deep div.StickyNote, .NameAndDescription > ::deep.StickyNote{
+   margin-top: calc(var(--GeneralMargin)/2);
+  }
+
+canvas {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
 
 .ProjectsTimeline::-webkit-scrollbar {
   display: none;

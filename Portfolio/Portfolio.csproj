@@ -16,6 +16,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\JS\PixelDivs.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Update="wwwroot\staticwebapp.config.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
