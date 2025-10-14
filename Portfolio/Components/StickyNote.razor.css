@@ -1,6 +1,7 @@
 ﻿div {
   border: calc(var(--PixelBorder)*2) solid #167f8b;
-  min-width: calc(var(--GeneralMargin) * 4);
+  width: calc(var(--GeneralMargin) * 4);
+  max-width: 100%;
   padding: var(--PixelBorder);
   height: var(--GeneralMargin);
   background-color: var(--DarkBlue);

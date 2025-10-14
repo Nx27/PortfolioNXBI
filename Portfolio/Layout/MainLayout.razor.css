@@ -1,18 +1,24 @@
 ﻿div {
   display: flex;
-  height: 100%;
+  background-image: linear-gradient(rgba(240, 248, 255, 0.95), rgba(240, 248, 255, 0.9)), url(/images/Sunrise.png);
+  image-rendering: pixelated;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: calc(100% - var(--HeaderHeight));
 }
 
 .Content {
+  background-image: none;
   padding: var(--GeneralMargin);
+  padding-bottom:0;
   display: flex;
   flex-direction: column;
   width: calc(100% - (var(--FrameWidth) * 2));
   height: 100%;
-  background-color: var(--LightBlue);
 }
 
-.RightSideSpace, .LeftSideSpace{
+.RightSideSpace, .LeftSideSpace {
+  background-image: none;
   width: var(--FrameWidth);
 }
 

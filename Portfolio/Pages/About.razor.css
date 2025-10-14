@@ -4,6 +4,7 @@
 }
 
 img {
+  image-rendering: optimizeQuality;
   flex-shrink: 0;
   object-fit: scale-down;
   width: 20%
