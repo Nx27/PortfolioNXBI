@@ -1,0 +1,13 @@
+﻿.ProjectPage {
+  height: 100%;
+}
+
+.ProjectDescription {
+  padding-top: var(--GeneralMargin);
+  width: 80%;
+  margin: auto;
+}
+
+::deep div.LandingContainer {
+  margin: auto;
+}
