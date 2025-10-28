@@ -5,26 +5,40 @@ namespace Portfolio.Logic.CS
 {
   public class SubBarController
   {
-    public bool IsVisible => SubBarText.Count > 0;
-    public List<string> SubBarText = new();
-    List<string> SubBarTextBuffer = new();
+    public event Action? ReRenderRequested;
+    public bool IsVisible = true;
+    public List<string> SubBarContentLinks = new();
+    private bool awaitNavigation = true;
 
     public SubBarController(NavigationManager navigationManager) =>
-      navigationManager.LocationChanged += (sender, args) => SubBarText.Clear();
+      navigationManager.LocationChanged += (sender, args) => 
+      {
+        SubBarContentLinks.Clear();
+        IsVisible = false;
+        ReRenderRequested?.Invoke();
+        awaitNavigation = false;
+      };
 
 
 
-    public void BuildSubBar()
+    public async void SetSubBarContent(params string[] Titles)
     {
-      SubBarText.Clear();
-      SubBarText.AddRange(SubBarTextBuffer);
-      SubBarTextBuffer.Clear();
-    }
+      if (IsVisible == true) return;
+      
+      await Task.Run(() =>
+      {
+        while (awaitNavigation)
+        {
+          
+          Task.Delay(100);
+        }
 
-    public string RegisterElementID(string displayName)
-    {
-      SubBarTextBuffer.Add(displayName);
-      return $"{SubBarTextBuffer.Count}+{displayName}";
+      });
+
+      awaitNavigation = true;
+      IsVisible = true;
+      SubBarContentLinks = Titles.ToList();
+      ReRenderRequested?.Invoke();
     }
   }
 }

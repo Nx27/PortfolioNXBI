@@ -24,6 +24,7 @@
 }
 
   .Picture > ::deep div {
+    width: auto;
     position: relative;
     bottom: -2%;
     left: -2%

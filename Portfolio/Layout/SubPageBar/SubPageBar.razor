@@ -2,14 +2,29 @@
 @inject HttpClient Http
 @inject SubBarController SubBarController
 
-<div class="SubPageBar">
-	<div class="Title"><h2>SubPage</h2></div>
-	<div class="Content">
-	</div>
-</div>
-
-
+@if (SubBarController.IsVisible)
+{
+  <div class="SubPageBar">
+    <div class="Title"><h2>SubPage</h2></div>
+    <div class="Content">
+      @foreach (var item in SubBarController.SubBarContentLinks)
+      {
+        <NavLink class="SubPageBarItem">
+          @item
+        </NavLink>
+      }
+    </div>
+  </div>
+}
 
 @code {
-	
+  protected override void OnInitialized()
+  {
+    SubBarController.ReRenderRequested += StateHasChanged;
+  }
+
+  public void Dispose()
+  {
+    SubBarController.ReRenderRequested -= StateHasChanged;
+  }
 }
