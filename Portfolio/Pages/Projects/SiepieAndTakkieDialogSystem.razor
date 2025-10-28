@@ -1,31 +1,25 @@
 ﻿@page "/Projects/SiepieAndTakkieDialogSystem"
 
 <div class="ProjectPage">
-	<DefaultProjectHeading CurrentProjectURL="SiepieAndTakkieDialogSystem"/>
-	<div class="ProjectDescription">
-		<h3>Project description</h3>
-		<span>
-			The Siepie and Takkie Dialog system (I will be calling it STDS from now on) is the dialog system I didn't get to finish in the scope of the <NavLink> original Siepie and Takkie game</NavLink>.
+  <DefaultProjectHeading CurrentProjectURL="Projects/SiepieAndTakkieDialogSystem" />
+  <div class="ProjectDescription">
+    <h3>Project description</h3>
+    <span>
+      The Siepie and Takkie Dialog system (I will be calling it the Dialog system from now on) is the dialog system I didn't get to finish in the scope of the <NavLink> original Siepie and Takkie game</NavLink>.
+    </span>
+    <span>
+      The Dialog system is a scene based dialog manager that can load and unload dialog per scene.
+      <CodeBlock CodeString=@dialogDeserializerString />
+    </span>
+    <span>
+      Then the npcs can request the dialog from the DialogDeserializer class that holds the DialogData from the current scene.
+      <img src="https://placehold.net/default.png" />
 
-	<DefaultProjectHeading CurrentProjectURL="Projects/SiepieAndTakkieDialogSystem" />
-	<div class="ProjectDescription">
-		<h3>Project description</h3>
-		<span>
-			The Siepie and Takkie Dialog system (I will be calling it the Dialog system from now on) is the dialog system I didn't get to finish in the scope of the <NavLink> original Siepie and Takkie game</NavLink>.
-		</span>
-		<span>
-			The Dialog system is a scene based dialog manager that can load and unload dialog per scene.
-			<img src="https://placehold.net/default.png" />
-		</span>
-		<span>
-			Then the npcs can request the dialog from the DialogDeserializer class that holds the DialogData from the current scene.
-			<img src="https://placehold.net/default.png" />
-
-		</span>
-	</div>
+    </span>
+  </div>
 </div>
 
 
 @code {
-
+  string dialogDeserializerString = CodeBlockDictionary.CodeBlocks["DialogDeserializer"];
 }
