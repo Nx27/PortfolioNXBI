@@ -1,0 +1,20 @@
+﻿@inject IJSRuntime JS
+
+<div class="CodeBlockWrapper">
+  <ButtonStickyNote class="copy-button">Copy</ButtonStickyNote>
+  <ButtonStickyNote class="copy-button">Turn off pixel font</ButtonStickyNote>
+<pre><code class="csharp">@CodeString</code></pre>
+</div>
+
+@code {
+  [Parameter]
+  public string CodeString { get; set; } = string.Empty;
+
+  protected override async Task OnAfterRenderAsync(bool firstRender)
+  {
+    if (firstRender)
+    {
+      await JS.InvokeVoidAsync("highlightAllCode");
+    }
+  }
+}

@@ -1,0 +1,7 @@
+﻿.CodeBlockWrapper {
+  border: var(--PixelBorder) solid var(--Black);
+}
+
+::deep div.StickyNote{
+
+}
