@@ -1,27 +1,30 @@
 ﻿<div class="IntroContainer">
-	<div class="Left">
-		<h1>Hi there, I'm Nora</h1>
-		<div class="RowFlex"><h1>I do <NavLink href="Projects"><h1>fun things</h1></NavLink> with software</h1></div>
-		<NavLink href="Projects/Portfolio"><h1>Like this Blazor website</h1></NavLink>
-	</div>
-	<div class="Right">
-		
-<Carousel TItem="string" Items="Images" Interval="2500" AutoRotate="true" ShowControls="false">
-    <ItemTemplate Context="img">
-        <img src="@img" style="width:100%; height:100%; object-fit:contain;" />
-    </ItemTemplate>
-</Carousel>
-	</div>
+  <div class="PictureWrap">
+    <div>
+      <span>
+        Hi there, I'm Nora,<br /> an hardworking game developer.<br />
+      </span>
+      <div class="Logos">
+        <a target="_blank" href="https://www.linkedin.com/in/noradegreeuw-nxbi/"><img class="PixelArt" src="/images/logos/LinkedIn.png" /></a>
+        <input type="image" class="PixelArt" src="/images/logos/DiscordLogo.png" />
+        <a target="_blank" href="mailto:noradegreeuw@gmail.com"><img class="PixelArt" src="/images/logos/Email.png" /></a>
+      </div>
+    </div>
+    <img src="/images/PicOfMe.jpg">
+  </div>
+  <span>
+    I aspire to be my best self.<br />
+    Most of the time that means doing <NavLink href="Projects"> things</NavLink> with software.<br />
+    <NavLink href="Projects/Portfolio">Like this Blazor website</NavLink>.<br />
+  </span>
+
+
+
 </div>
 
 
 @code {
-	private List<string> Images = new()
-		{
-				"/images/siepietakkie_poster_better.png",
-				"/images/siepietakkie_poster_better.png",
-				"/images/siepietakkie_poster_better.png"
-		};
+
 
 
 }
