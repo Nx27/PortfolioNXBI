@@ -1,27 +1,29 @@
 ﻿<div class="IntroContainer">
-	<div class="Left">
-		<h1>Hi there, I'm Nora</h1>
-		<div class="RowFlex"><h1>I do <NavLink href="Projects"><h1>fun things</h1></NavLink> with software</h1></div>
-		<NavLink href="Projects/Portfolio"><h1>Like this Blazor website</h1></NavLink>
-	</div>
-	<div class="Right">
-		
-<Carousel TItem="string" Items="Images" Interval="2500" AutoRotate="true" ShowControls="false">
-    <ItemTemplate Context="img">
-        <img src="@img" style="width:100%; height:100%; object-fit:contain;" />
-    </ItemTemplate>
-</Carousel>
-	</div>
+  <div class="PictureWrap">
+    <div class="IntroInfo">
+      <div class="IntroText">
+        <h1>Hi there, I'm Nora,</h1><br />
+        <span>
+          a hardworking game developer.
+          I aspire to be my best self.
+          Most of the time that means doing <NavLink href="Projects"> things</NavLink> with software.
+          <NavLink href="Projects/Portfolio">Like this Blazor website</NavLink>.
+        </span>
+      </div>
+    </div>
+    <div class="Img">
+      <a target="_blank" href="https://heyzine.com/flip-book/6b71ab40e0.html#page/33">
+        <img src="/images/PicOfMe.jpg">  
+      </a>
+      <p >From the paper I got featured in</p>
+    </div>
+  </div>
 </div>
 
 
+
 @code {
-	private List<string> Images = new()
-		{
-				"/images/siepietakkie_poster_better.png",
-				"/images/siepietakkie_poster_better.png",
-				"/images/siepietakkie_poster_better.png"
-		};
+
 
 
 }

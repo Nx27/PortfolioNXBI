@@ -23,8 +23,8 @@ img {
 }
 
 .Menu {
+  display: flex;
   margin-left: var(--GeneralMargin);
   width: 75%;
-  display: flex;
-  justify-content: space-between;
+  gap: var(--FrameWidth);
 }
