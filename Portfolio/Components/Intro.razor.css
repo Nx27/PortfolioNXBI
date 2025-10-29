@@ -1,33 +1,60 @@
-﻿*,  ::deep a{
+﻿*, ::deep a {
   font-size: 50px;
+  text-wrap: wrap;
 }
-
-  ::deep a{
-    color: var(--DarkBlue);
-    text-decoration: underline;
+::deep a {
+  color: var(--DarkBlue);
+  text-decoration: underline;
+}
+  .PictureWrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--GeneralMargin);
+    flex-direction: row;
   }
 
-.PictureWrap{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  flex-direction: row;
+img {
+  display: block;
 }
 
-.PictureWrap > img{
-  justify-self: flex-end;
-}
-
-img, input{
+img, input {  
+  aspect-ratio: 1/1;
   border: var(--PixelBorder) solid var(--Black);
 }
-.Logos *{
-  width: 70px;
+
+.Img {
+  width: 30vw;
+  flex-grow: 1;
+}
+.Img img{
+  width: 100%;
 }
 
-  .IntroContainer {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+
+.IntroInfo {
+  width:600px;
+  display: flex;
+  flex-direction: column;
+  text-align: end;
+  flex-shrink: 2;
+}
+
+.IntroContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.Img p{
+  display: none;
+}
+
+  .Img:hover p{
+    display: inline;
   }
+
+p {
+  z-index: 2;
+  position: absolute;
+}
