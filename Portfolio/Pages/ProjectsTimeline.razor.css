@@ -1,72 +1,109 @@
 ﻿.ProjectsTimeline {
-  position: relative;
-  box-sizing: border-box;
-  height: 85%;
-  scroll-snap-type: y mandatory;
-  overflow-y: auto;
-  overflow-x: visible;
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-  scroll-snap-stop: always;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr calc(var(--GeneralMargin)*4) 1fr;
+  grid-auto-rows: minmax(6rem, auto);
+  margin-bottom: var(--GeneralMargin);
 }
 
-.PointInTime {
-  margin-left: var(--PixelBorder);
-  margin-right: var(--PixelBorder);
-  height: 100%;
-  width: calc( 100% - (var(--PixelBorder)*2));
-  scroll-snap-align: center;
-  border: var(--PixelBorder) solid var(--Black);
-  background-repeat: no-repeat;
-  background-size: contain;
+.leftright0 {
+  grid-column: 3
 }
 
-canvas, .DiscriptionInfo {
-  scroll-snap-align: unset;
-  position: absolute;
+.Middle {
+  display: flex;
+  justify-content: center;
   height: 100%;
   width: 100%;
+  grid-column: 2;
 }
 
-.DiscriptionInfo {
-  display: flex;
-  height: calc(100% - var(--PixelBorder));
-  width:    100%;
+.leftright1 {
+  grid-column: 1;
 }
 
-.NameAndDescription {
+.leftright1, .leftright0 {
   position: relative;
-  left: calc((var(--PixelBorder) * 2)* -1);
-  height: 100%;
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: start;
-}
-
-.SoftwareStack {
-  height: 100%;
-  width: calc( 20% - (var(--PixelBorder)*2));
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
-}
-
-  .SoftwareStack > ::deep div.StickyNote, .NameAndDescription > ::deep.StickyNote{
-   margin-top: calc(var(--GeneralMargin)/2);
   }
 
-canvas {
-  width: 100%;
+  .leftright1 > span {
+    position: absolute;
+    display: block;
+    width: calc(var(--GeneralMargin) * 2);
+    height: var(--PixelBorder);
+    right: calc((var(--GeneralMargin)* -2));
+    bottom: 50%;
+    background-color: var(--Black);
+  }
+
+  .leftright0 > span {
+    position: absolute;
+    display: block;
+    width: calc( var(--GeneralMargin) * 2);
+    height: var(--PixelBorder);
+    left: calc((var(--GeneralMargin)* -2));
+    bottom: 50%;
+    background-color: var(--Black);
+    border-left: var(--PixelBorder) solid var(--Black);
+  }
+
+.Middle > span {
+  display: block;
+  width: var(--PixelBorder);
   height: 100%;
-  pointer-events: none;
+  background-color: var(--Black);
+}
+.ProjectDetails {
+  background-repeat: no-repeat;
+  background-size: contain;
+  aspect-ratio: 4/3;
+  border: var(--PixelBorder) solid var(--Black);
 }
 
-.ProjectsTimeline::-webkit-scrollbar {
-  display: none;
+  .ProjectDetails > img {
+    width: 30vw;
+  }
+
+.ProjectDescription{
+  position: absolute;
+  height: 100%;
+}
+
+  .ProjectDescription > ::deep div.StickyNote:first-child {
+    position: absolute;
+    bottom:   var(--GeneralMargin);
+  }
+
+  .ProjectDescription > ::deep div.StickyNote {
+    position: absolute;
+    bottom: calc((var(--PixelBorder)*2) * -1);
+    left: calc((var(--PixelBorder)*2) * -1);
+    text-wrap: nowrap;
+  }
+
+.TimeInfo {
+  display: flex;
+  height: 100%;
+}
+.leftright1 > .TimeInfo {
+  justify-content: end;
+  align-items: center;
+}
+
+.leftright0 > .TimeInfo {
+  justify-content: start;
+  align-items: center;
+}
+
+
+  .leftright0 > .TimeInfo > p {
+    display: block;
+    border-left: var(--PixelBorder) solid var(--Black);
+    border-bottom: var(--PixelBorder) solid var(--Black);
+  }
+
+.leftright1 > .TimeInfo > p {
+  display: block;
+  border-right: var(--PixelBorder) solid var(--Black);
+  border-bottom: var(--PixelBorder) solid var(--Black);
 }

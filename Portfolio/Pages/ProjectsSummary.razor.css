@@ -1,0 +1,28 @@
+﻿.BestWorkProjects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  flex-direction: row;
+}
+
+.BestWorkProjects ::deep a {
+  flex-grow: 1;
+}
+
+.BestWorkProject {
+  width: 350px;
+  position: relative;
+}
+
+::deep .StickyNote{
+  height: auto;
+}
+
+  .BestWorkProject img{
+    width: 100%;
+  }
+
+  .BestWorkProjectDescription {
+    position: absolute;
+    bottom: 0;
+  }

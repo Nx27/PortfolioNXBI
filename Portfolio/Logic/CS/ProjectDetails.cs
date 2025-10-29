@@ -27,15 +27,22 @@
     {
       if (AllProjects.Count == 0)
       {
-        //new ProjectDetails("The Journey", "My first console app in NodeJS", "TheJourney", "images/logos/Artboard1.svg", "JS", "1 Week", "404");
-        //new ProjectDetails("First basic website", "First web project I ever made", "TheJourney", "404", "HTML, CSS", "1 Week", "404");
-        //new ProjectDetails("ColorTD", "Small tower defense game", "ColorTD", "", "C#, UnityEngine, ", "6 Weeks", "404");
-        //new ProjectDetails("Hollow Knight Slice", "A copy of a small part of the game", "HollowKnightSlice", "404", "C#, UnityEngine", "4 Weeks", "404");
-        //new ProjectDetails("Siepie and Takkie", "An international collaboration project between Sweden and the Netherlands", "SiepieAndTakkieOriginal", "404", "C#, UnityEngine", "3 Weeks", "404");
-        new ProjectDetails("Siepie and Takkie Dialog system", "Finishing the dialog system for the orgiginal", "Projects/SiepieAndTakkieDialogSystem", "images/projects/SiepieAndTakkieDialogDummy.png", new string[] { "C#", "Unity", "Jira" }, "6 Weeks", "https://github.com/Entropy-Entertainment/Siepie");
-        new ProjectDetails("Portfolio", "My personal portfolio website", "Projects/Portfolio", "404", new string[] { "C#", "Blazor", "CSS" }, "2 Weeks", "404");
+        new ProjectDetails("The Journey", "My first console app in NodeJS", "TheJourney", "images/logos/Artboard1.svg", new string[] { "JS" }, "1 Week", "404");
+        new ProjectDetails("First basic website", "First web project I ever made", "TheJourney", "404", new string[]  { "HTML, CSS" }, "1 Week", "404");
+        new ProjectDetails("ColorTD", "Small tower defense game", "ColorTD", "", new string[] { "C#, UnityEngine, " }, "6 Weeks", "404");
+        new ProjectDetails("Hollow Knight Slice", "A copy of a small part of the game", "HollowKnightSlice", "404", new string[] { "C#, UnityEngine" }, "4 Weeks", "404");
+        new ProjectDetails("Siepie and Takkie", " A project with Swedes and the Dutch", "SiepieAndTakkieOriginal", "404", new string[] { "C#, UnityEngine" }, "3 Weeks", "404");
+        new ProjectDetails("Siepie and Takkie Dialog system", "Finishing the dialog system", "Projects/SiepieAndTakkieDialogSystem", "images/projects/SiepieAndTakkieDialogDummy.png", new string[] { "C#", "Unity", "Jira" }, "6 Weeks", "https://github.com/Entropy-Entertainment/Siepie");
+        new ProjectDetails("Portfolio", "My personal portfolio website", "Projects/Portfolio", "images/projects/BlazorIcon.png", new string[] { "C#", "Blazor", "CSS" }, "2 Weeks", "404");
       }
       return AllProjects;
+    }
+    public static List<ProjectDetails> GetByNames(params string[] names)
+    {
+      GetAllProjects();
+
+      var set = new HashSet<string>(names ?? Array.Empty<string>(), StringComparer.OrdinalIgnoreCase);
+      return AllProjects.Where(p => set.Contains(p.Name)).ToList();
     }
   }
 }

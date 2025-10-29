@@ -1,41 +1,75 @@
-﻿@page "/Projects"
-@using System.Threading.Tasks
+﻿@using System.Threading.Tasks
 @inject IJSRuntime JS
 
-<div class="ProjectsTimeline" id="ProjectsTimeline">
-	@foreach (var project in projectDetails)
-	{
-		<NavLink href="@project.Url" style="z-index:1; height: 100%; width: 100%;">
-		<div class="PointInTime" id="@project.Name" style="background-image: url(/@project.ImageUrl); z-index: 0">
-			<canvas id="pixelRevealCanvas" style="z-index: 1;" />
-			<div class="DiscriptionInfo" style="z-index: 2">
-				<div class="NameAndDescription">
-					<ButtonStickyNote Text="@project.Name" />
-					<ButtonStickyNote Text="@project.Description"/>
-				</div>
-				<div class="SoftwareStack">
-					@foreach (var software in orderList(project))
-					{
-						<ButtonStickyNote Text="@software"/>
-					}
-				</div>
-			</div>
-		
-		</div>
-		</NavLink>
-	}
+<div class="ProjectsTimeline">
+  @for (int j = 0; j < projectDetails.Count; j++)
+  {
+    var i = j;
+    Console.Write(projectDetails.Count);
+    Console.Write(i);
+    <div class="leftright1">
+      @if ((i + 1) % 2 == 1)
+      {
+        <div class="TimeInfo">
+        <p>@projectDetails[i].Time</p>
+        </div>
+        <span />
+      }
+      else
+      {
+        <NavLink href=@projectDetails[i].Url>
+          <div class="ProjectDetails" style="background-image: url(@projectDetails[i].ImageUrl)">
+            <div class="ProjectDescription">
+              <ButtonStickyNote Text="@projectDetails[i].Name" />
+              <ButtonStickyNote Text="@projectDetails[i].Description" />
+            </div>
+          </div>
+        </NavLink>
+        <span />
+      }
+
+    </div>
+    <div class="Middle"><span /></div>
+
+    <div class="leftright0">
+      @if ((i + 1) % 2 == 1)
+      {
+        <NavLink href=@projectDetails[i].Url>
+          <div class="ProjectDetails" style="background-image: url(@projectDetails[i].ImageUrl)">
+            <div class="ProjectDescription">
+              <ButtonStickyNote Text="@projectDetails[i].Name" />
+              <ButtonStickyNote Text="@projectDetails[i].Description" />
+            </div>
+          </div>
+        </NavLink>
+        <span />
+      }
+      else
+      {
+        <div class="TimeInfo">
+        <p>@projectDetails[i].Time</p>
+        </div>
+        <span />
+      }
+    </div>
+
+  }
+  <h1 class="Middle" style="text-wrap: nowrap; text-align:center; margin-top: var(--GeneralMargin);">To the future!</h1>
 </div>
 
+
+
+
 @code {
-	List<ProjectDetails>? projectDetails;
+  List<ProjectDetails>? projectDetails;
 
-	protected override async Task OnInitializedAsync()
-	{
-		projectDetails = ProjectDetails.GetAllProjects();
-	}
+  protected override async Task OnInitializedAsync()
+  {
+    projectDetails = ProjectDetails.GetAllProjects();
+  }
 
-	string[] orderList(ProjectDetails currentProject)
-	{
-		return currentProject.SoftwareStack.OrderBy(x => x.Length).ToArray();
-	}
+  string[] orderList(ProjectDetails currentProject)
+  {
+    return currentProject.SoftwareStack.OrderBy(x => x.Length).ToArray();
+  }
 }

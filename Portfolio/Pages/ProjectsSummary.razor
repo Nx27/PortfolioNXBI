@@ -1,0 +1,28 @@
+﻿@page "/Projects"
+
+<div class="BestWork">
+  <h2>Highly recommend you check these out:</h2>
+  <div class="BestWorkProjects">
+    @foreach (var project in favProjects)
+    {
+      <div class="BestWorkProject">
+      <NavLink href="@project.Url">
+       
+          <img src="@project.ImageUrl" alt="@project.Name" />
+          <div class="BestWorkProjectDescription">
+            <ButtonStickyNote Text="@project.Name" />
+            <ButtonStickyNote Text="@project.Description" />
+          </div>
+
+      
+      </NavLink>
+       </div>
+    }
+  </div>
+</div>
+<ProjectsTimeline/>
+
+
+@code {
+  List<ProjectDetails> favProjects = ProjectDetails.GetByNames("Siepie and Takkie Dialog system", "Portfolio");
+}
