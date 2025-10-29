@@ -45,11 +45,32 @@ body {
 }
 @media (max-width: 480px) {
   .RightSideSpace, .LeftSideSpace {
-    display: none;
+    display: none !important;
   }
 
   * {
     font-size: 5vw;
+  }
+
+  .Logo{
+    display: none;
+  }
+
+  .Header{
+    height: auto !important;
+  }
+
+  .Menu{
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  .Content{
+    width: 100% !important;
+  }
+
+  .Logos{
+    padding-bottom: var(--GeneralMargin);
   }
 }
 
