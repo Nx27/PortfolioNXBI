@@ -1,0 +1,36 @@
+﻿.BestWorkProjects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  flex-direction: row;
+  justify-content: center;
+  gap: var(--GeneralMargin);
+}
+
+
+.BestWorkProject {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  aspect-ratio: 4/3;
+  display: block;
+  width: 350px;
+  position: relative;
+}
+
+::deep .StickyNote{
+  height: auto;
+}
+
+  .BestWorkProject img{
+    width: 100%;
+  }
+
+  .BestWorkProjectDescription {
+    position: absolute;
+    bottom: 0;
+  }
+.BestWork > h2{
+  text-align: center;
+  margin-bottom: var(--GeneralMargin);
+}

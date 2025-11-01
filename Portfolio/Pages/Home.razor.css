@@ -1,1 +1,23 @@
-﻿
+﻿.IntroContainer {
+  padding-bottom: var(--GeneralMargin);
+  border-bottom: var(--PixelBorder) solid var(--Black);
+}
+
+.Logos {
+  place-content: center;
+  margin-top: var(--GeneralMargin);
+  display: flex;
+  gap: 40px;
+}
+
+  .Logos * {
+    width: 80px;
+    aspect-ratio: 1/1;
+
+  }
+
+img, input {
+  display: block;
+  aspect-ratio: 1/1;
+  border: var(--PixelBorder) solid var(--Black);
+}
