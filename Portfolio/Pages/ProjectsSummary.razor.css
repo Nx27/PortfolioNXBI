@@ -3,13 +3,17 @@
   flex-wrap: wrap;
   gap: 20px;
   flex-direction: row;
+  justify-content: center;
+  gap: var(--GeneralMargin);
 }
 
-.BestWorkProjects ::deep a {
-  flex-grow: 1;
-}
 
 .BestWorkProject {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  aspect-ratio: 4/3;
+  display: block;
   width: 350px;
   position: relative;
 }
@@ -26,3 +30,7 @@
     position: absolute;
     bottom: 0;
   }
+.BestWork > h2{
+  text-align: center;
+  margin-bottom: var(--GeneralMargin);
+}

@@ -1,32 +1,24 @@
-﻿.ProjectPage {
-  height: 100%;
-}
-
-.ProjectDescription {
-  padding-top: var(--GeneralMargin);
-  width: 80%;
-  margin: auto;
-}
-
-::deep div.LandingContainer {
-  margin: auto;
-}
-
-.ProjectDescription {
+﻿.ProjectDescription {
   display: flex;
   gap: var(--GeneralMargin);
   flex-direction: column;
   width: 80%;
+  margin-bottom: var(--GeneralMargin);
 }
 
-  .ProjectDescription > div:first-child {
+  .ProjectDescription > div:first-child, .BottomMargin {
     margin-top: var(--GeneralMargin);
   }
+
+.BottomMargin, h3{
+  margin-bottom: var(--GeneralMargin);
+}
 
 .ProjectPage {
   margin-bottom: var(--GeneralMargin);
 }
 
 img {
+  width: 100%;
   border: var(--PixelBorder) solid var(--Black);
 }

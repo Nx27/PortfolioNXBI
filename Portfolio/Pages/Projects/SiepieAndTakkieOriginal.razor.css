@@ -1,17 +1,3 @@
-﻿.ProjectPage {
-  height: 100%;
-}
-
-.ProjectDescription {
-  padding-top: var(--GeneralMargin);
-  width: 80%;
-  margin: auto;
-}
-
-::deep div.LandingContainer {
-  margin: auto;
-}
-
 .ProjectDescription {
   display: flex;
   gap: var(--GeneralMargin);
@@ -30,3 +16,8 @@
 img {
   border: var(--PixelBorder) solid var(--Black);
 }
+
+iframe{
+  aspect-ratio: 1980/1080;
+}
+

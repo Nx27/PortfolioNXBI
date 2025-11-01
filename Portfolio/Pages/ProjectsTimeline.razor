@@ -2,7 +2,11 @@
 @inject IJSRuntime JS
 
 <div class="ProjectsTimeline">
-  @for (int j = 0; j < projectDetails.Count; j++)
+  <div class="Middle">
+  <h1 style="text-wrap: nowrap; text-align:center; margin-top: var(--GeneralMargin);">My whole programming career so far</h1>
+         <span />
+  </div>
+  @for (int j = projectDetails.Count - 1; j >= 0;  j--) 
   {
     var i = j;
     Console.Write(projectDetails.Count);
@@ -54,7 +58,7 @@
     </div>
 
   }
-  <h1 class="Middle" style="text-wrap: nowrap; text-align:center; margin-top: var(--GeneralMargin);">To the future!</h1>
+  <h1 class="Middle" style="text-wrap: nowrap; text-align:center; margin-top: var(--GeneralMargin);">Start of my career</h1>
 </div>
 
 

@@ -3,8 +3,8 @@
 }
 
 .LandingContainer {
+  aspect-ratio: 4/2.5;
   width: 80%;
-  height: 70%;
   display: flex;
   justify-content: center;
 }
@@ -17,7 +17,7 @@
   display: flex;
   flex-grow: 0;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   justify-content: flex-end;
   align-items: flex-end;

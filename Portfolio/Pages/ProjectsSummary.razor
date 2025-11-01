@@ -1,22 +1,17 @@
 ﻿@page "/Projects"
 
-<div class="BestWork">
+<div class="BestWork" style="margin-bottom: var(--GeneralMargin);">
   <h2>Highly recommend you check these out:</h2>
   <div class="BestWorkProjects">
     @foreach (var project in favProjects)
     {
-      <div class="BestWorkProject">
-      <NavLink href="@project.Url">
-       
-          <img src="@project.ImageUrl" alt="@project.Name" />
-          <div class="BestWorkProjectDescription">
-            <ButtonStickyNote Text="@project.Name" />
-            <ButtonStickyNote Text="@project.Description" />
+        <NavLink href=@project.Url>
+          <div class="BestWorkProject" style="background-image: url(@project.ImageUrl)">
+            <div class="BestWorkProjectDescription">
+              <ButtonStickyNote Text="@project.Name" />
+            </div>
           </div>
-
-      
-      </NavLink>
-       </div>
+        </NavLink>
     }
   </div>
 </div>

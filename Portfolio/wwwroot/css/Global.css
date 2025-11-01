@@ -72,6 +72,10 @@ body {
   .Logos{
     padding-bottom: var(--GeneralMargin);
   }
+  .ProjectsTimeline {
+    display: none !important;
+  }
+
 }
 
 .PixelArt{

@@ -1,4 +1,5 @@
 ﻿.ProjectsTimeline {
+  border-top: var(--PixelBorder) solid var(--Black);
   width: 100%;
   display: grid;
   grid-template-columns: 1fr calc(var(--GeneralMargin)*4) 1fr;
@@ -55,7 +56,8 @@
 }
 .ProjectDetails {
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
+  background-position: center;
   aspect-ratio: 4/3;
   border: var(--PixelBorder) solid var(--Black);
 }
