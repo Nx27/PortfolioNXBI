@@ -1,0 +1,9 @@
+﻿* {
+  border: var(--PixelBorder) solid var(--DarkerBlue);
+  background-color: var(--DarkBlue);
+  color: var(--LightBlue);
+}
+
+.Activated, .NormalButton:hover {
+  background-color: var(--DarkerBlue);
+}

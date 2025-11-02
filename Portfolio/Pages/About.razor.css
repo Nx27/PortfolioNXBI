@@ -1,11 +1,29 @@
-﻿div {
+﻿*{
+  background: none;
+}
+
+.FoldoutFoldoutContent{
+  display: none;  
+
+}
+
+
+
+.AboutMe {
   display: flex;
   border: var(--PixelBorder) solid var(--Black);
 }
 
 img {
-  image-rendering: optimizeQuality;
   flex-shrink: 0;
   object-fit: scale-down;
   width: 20%
+}
+ul{
+  list-style: none;
+}
+
+@keyframes AnimateContent{
+  from {height: 0%}
+  to {height: fit-content}
 }
