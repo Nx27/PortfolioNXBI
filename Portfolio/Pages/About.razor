@@ -14,33 +14,36 @@
   <img src="/images/nora@0.5x.png" />
 </div>
 
-<NormalButton Text="Likes"></NormalButton>
-<div class="FoldoutContent">
-  <ul>
-    @foreach (var like in likes)
-    {
-      <li>
-        <NormalButton OnClick=@showContent() Text="@like.Key"></NormalButton>
-        <div class="FoldoutFoldoutContent">
-          <p>@like.Value</p>
-        </div>
-      </li>
-    }
-  </ul>
-</div>
-<NormalButton Text="Dislikes"></NormalButton>
-<div class="FoldoutContent">
-  <ul>
-    @foreach (var dislike in dislikes)
-    {
-      <li>
-        <NormalButton Text="@dislike.Key"></NormalButton>
-        <div class="FoldoutFoldoutContent">
-          <p>@dislike.Value</p>
-        </div>
-      </li>
-    }
-  </ul>
+<div class="Details">
+  <details class="FoldoutContent">
+    <summary>Likes</summary>
+    <ul>
+      @foreach (var like in likes)
+      {
+        <li>
+          <details>
+            <summary>@like.Key</summary>
+            <p>@like.Value</p>
+          </details>
+        </li>
+      }
+    </ul>
+  </details>
+
+  <details class="FoldoutContent">
+    <summary>Dislikes</summary>
+    <ul>
+      @foreach (var dislike in dislikes)
+      {
+        <li>
+          <details>
+            <summary>@dislike.Key</summary>
+            <p>@dislike.Value</p>
+          </details>
+        </li>
+      }
+    </ul>
+  </details>
 </div>
 
 @code {
@@ -69,7 +72,7 @@
   protected override void OnInitialized()
   {
     age = DateTime.Today.Year - birthday.Year;
-    likes.Add("Music", $"Muse and Imagine dragons and The Script are by favorite bands but that doesn't end there I have a total of {spotifyAPILenght} in my playlist. There isn't a day that I'm not listening to music");
+    likes.Add("+ Music", $"Muse and Imagine dragons and The Script are by favorite bands but that doesn't end there I have a total of {spotifyAPILenght} in my playlist. There isn't a day that I'm not listening to music");
   }
 
   void showContent()

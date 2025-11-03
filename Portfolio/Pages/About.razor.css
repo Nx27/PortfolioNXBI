@@ -1,13 +1,6 @@
-﻿*{
+﻿* {
   background: none;
 }
-
-.FoldoutFoldoutContent{
-  display: none;  
-
-}
-
-
 
 .AboutMe {
   display: flex;
@@ -19,11 +12,30 @@ img {
   object-fit: scale-down;
   width: 20%
 }
-ul{
+
+details summary {
+  display: block;
+}
+
+.Details details summary, 
+.Details details p{
+  border: var(--PixelBorder) solid var(--Black);
+}
+
+.Details > details details,
+.Details > details details p{
+  margin-left: var(--GeneralMargin);
+}
+
+.Details > details {
+  margin-top: var(--GeneralMargin);
+}
+
+.Details  ul {
   list-style: none;
 }
 
-@keyframes AnimateContent{
-  from {height: 0%}
-  to {height: fit-content}
+.Details li,
+.Details li details p{
+  margin-top: 0.5em;
 }
