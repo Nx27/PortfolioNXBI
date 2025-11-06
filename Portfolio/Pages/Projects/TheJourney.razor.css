@@ -10,9 +10,28 @@
 }
 
 .ProjectPage{
+
   margin-bottom: var(--GeneralMargin);
 }
 
-img{
+img {
+  display: block;
+  width: auto;  
   border: var(--PixelBorder) solid var(--Black);
+}
+
+a {
+  color: var(--DarkBlue);
+  text-decoration: underline;
+}
+
+.ImageGrid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+
+}
+
+.ImageGrid > img{
+  aspect-ratio: 5.5/3.3;
+  width: 100%;
 }

@@ -27,7 +27,7 @@
     {
       if (AllProjects.Count == 0)
       {
-        new ProjectDetails("The Journey", "My first console app in NodeJS", "Projects/TheJourney", "images/projects/Nathan.png", new string[] { "JS" }, "1 Week", "https://github.com/Nx27-ma/BO-textbased-application/");
+        new ProjectDetails("The Journey", "My first console app in NodeJS", "Projects/TheJourney", "images/projects/thejourney/Nathan.png", new string[] { "JS" }, "1 Week", "https://github.com/Nx27-ma/BO-textbased-application/");
         new ProjectDetails("First basic website", "First web project I ever made", "https://37214.hosts2.ma-cloud.nl/Module2.1/Skill/LandingPage", "images/projects/dizzy.png", new string[]  { "HTML, CSS" }, "1 Week", "404");
         new ProjectDetails("ColorTD", "Small tower defense game", "Projects/ColorTD", "images/projects/ColorTD.png", new string[] { "C#, UnityEngine, " }, "6 Weeks", "https://github.com/Nx27-ma/colorTD");
         new ProjectDetails("Hollow Knight Slice", "A copy of a small part of the game", "Projects/HollowKnightSlice", "images/projects/HK.jpg", new string[] { "C#, UnityEngine" }, "4 Weeks", "https://github.com/Entropire/HungryNight");
