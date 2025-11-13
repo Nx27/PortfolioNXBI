@@ -23,9 +23,8 @@
   align-items: flex-end;
 }
 
-  .Picture > ::deep div {
-    width: auto;
+  .Picture ::deep div {
     position: relative;
     bottom: -2%;
-    left: -2%
+    right: -2%
   }
