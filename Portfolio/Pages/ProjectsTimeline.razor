@@ -71,9 +71,4 @@
   {
     projectDetails = ProjectDetails.GetAllProjects();
   }
-
-  string[] orderList(ProjectDetails currentProject)
-  {
-    return currentProject.SoftwareStack.OrderBy(x => x.Length).ToArray();
-  }
 }
