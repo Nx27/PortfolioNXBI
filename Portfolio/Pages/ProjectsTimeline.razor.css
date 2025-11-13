@@ -2,12 +2,17 @@
   border-top: var(--PixelBorder) solid var(--Black);
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr calc(var(--GeneralMargin)*4) 1fr;
+  grid-template-columns: 45% calc(var(--GeneralMargin)*4) 45%;
   grid-auto-rows: minmax(6rem, auto);
   margin-bottom: var(--GeneralMargin);
 }
 
+p{
+  padding: var(--PixelBorder);
+}
+
 .leftright0 {
+  width: 100%;
   grid-column: 3
 }
 
@@ -20,6 +25,8 @@
 }
 
 .leftright1 {
+  text-align: right;
+  width: 100%;
   grid-column: 1;
 }
 

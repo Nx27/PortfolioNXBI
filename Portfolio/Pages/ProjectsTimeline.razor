@@ -15,7 +15,18 @@
       @if ((i + 1) % 2 == 1)
       {
         <div class="TimeInfo">
-        <p>@projectDetails[i].Time</p>
+          <p>
+            Duration: @projectDetails[i].Time<br />
+            @foreach (var tag in projectDetails[i].Tags.Keys)
+            {
+              foreach (var details in projectDetails[i].Tags[tag])
+              {
+                @details;
+              }
+              <br />
+            }
+            
+          </p>
         </div>
         <span />
       }
@@ -51,7 +62,16 @@
       else
       {
         <div class="TimeInfo">
-        <p>@projectDetails[i].Time</p>
+        <p>Duration: @projectDetails[i].Time<br/>
+            @foreach(var tag in projectDetails[i].Tags.Keys)
+            {
+              foreach(var details in projectDetails[i].Tags[tag])
+              {
+                @details;
+              }
+              <br />
+            }
+          </p>
         </div>
         <span />
       }
