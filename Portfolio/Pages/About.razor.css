@@ -1,11 +1,41 @@
-﻿div {
+﻿* {
+  background: none;
+}
+
+.AboutMe {
   display: flex;
   border: var(--PixelBorder) solid var(--Black);
 }
 
 img {
-  image-rendering: optimizeQuality;
   flex-shrink: 0;
   object-fit: scale-down;
   width: 20%
+}
+
+details summary {
+  display: block;
+}
+
+.Details details summary, 
+.Details details p{
+  border: var(--PixelBorder) solid var(--Black);
+}
+
+.Details > details details,
+.Details > details details p{
+  margin-left: var(--GeneralMargin);
+}
+
+.Details > details {
+  margin-top: var(--GeneralMargin);
+}
+
+.Details  ul {
+  list-style: none;
+}
+
+.Details li,
+.Details li details p{
+  margin-top: 0.5em;
 }
