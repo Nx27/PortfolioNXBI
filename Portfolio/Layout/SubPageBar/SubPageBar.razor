@@ -9,15 +9,19 @@
     <div class="Content">
       @foreach (var item in SubBarController.SubBarContentLinks)
       {
-        <NavLink class="SubPageBarItem">
-          @item
-        </NavLink>
+        <NormalButton OnClick="() => ScrollTo(item)" Text="@item"></NormalButton>
       }
     </div>
   </div>
 }
 
 @code {
+  [Inject] IJSRuntime JS { get; set; }
+
+  async Task ScrollTo(string id)
+  {
+    await JS.InvokeVoidAsync("scrollToElement", id);
+  }
   protected override void OnInitialized()
   {
     SubBarController.ReRenderRequested += StateHasChanged;
