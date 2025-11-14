@@ -1,6 +1,6 @@
 ﻿div {
-  border: calc(var(--PixelBorder)*2) solid #167f8b;
-  width: calc(var(--GeneralMargin) * 4);
+  display: flex;
+  border: calc(var(--PixelBorder)*2) solid #285178;
   max-width: 100%;
   padding: var(--PixelBorder);
   height: var(--GeneralMargin);
@@ -9,12 +9,19 @@
 }
 
   div:hover, div:hover > h3 {
-    border-color: #167f8b;
-    background-color: #167f8b;
+    border-color: #285178;
+    background-color: #285178;
     color: black;
   }
- 
+
 h3 {
+  width: 100%;
+  height: 100%;
   color: var(--LightBlue);
   text-align: center;
-}  
+}
+
+img {
+  margin-left: var(--PixelBorder);
+    display: inline;
+  }

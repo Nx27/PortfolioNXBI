@@ -1,7 +1,7 @@
 ﻿div {
   display: inline-block;
   position: relative;
-  border: calc(var(--PixelBorder)*2) solid #167f8b;
+  border: calc(var(--PixelBorder)*2) solid #285178;
   min-width: calc(var(--GeneralMargin));
   width: auto;
   padding: var(--PixelBorder);
@@ -11,8 +11,8 @@
 }
 
   div:hover, div:hover > h3 {
-    border-color: #167f8b;
-    background-color: #167f8b;
+    border-color: #285178;
+    background-color: #285178;
     color: black;
   }
 

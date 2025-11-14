@@ -8,18 +8,27 @@
     public readonly string Description;
     public readonly string Url;
     public readonly string ImageUrl;
-    public readonly string[] SoftwareStack;
     public readonly string Time;
     public readonly string LinkToProject;
-    public ProjectDetails(string name, string description, string url, string imageUrl, string[] softwareStack, string time, string linkToProject)
+    public readonly Dictionary<FilterOptions, string[]> Tags;
+
+    public enum FilterOptions
+    { 
+      Languages,
+      Software,
+      Frameworks
+    }
+
+
+    public ProjectDetails(string name, string description, string url, string imageUrl,  string time, string linkToProject, Dictionary<FilterOptions, string[]> tags)
     {
       Name = name;
       Description = description;
       Url = url;
       ImageUrl = imageUrl;
-      SoftwareStack = softwareStack; 
       Time = time;
       LinkToProject = linkToProject;
+      Tags = tags;
       AllProjects.Add(this);
     }
 
@@ -27,15 +36,23 @@
     {
       if (AllProjects.Count == 0)
       {
-        //new ProjectDetails("The Journey", "My first console app in NodeJS", "TheJourney", "images/logos/Artboard1.svg", "JS", "1 Week", "404");
-        //new ProjectDetails("First basic website", "First web project I ever made", "TheJourney", "404", "HTML, CSS", "1 Week", "404");
-        //new ProjectDetails("ColorTD", "Small tower defense game", "ColorTD", "", "C#, UnityEngine, ", "6 Weeks", "404");
-        //new ProjectDetails("Hollow Knight Slice", "A copy of a small part of the game", "HollowKnightSlice", "404", "C#, UnityEngine", "4 Weeks", "404");
-        //new ProjectDetails("Siepie and Takkie", "An international collaboration project between Sweden and the Netherlands", "SiepieAndTakkieOriginal", "404", "C#, UnityEngine", "3 Weeks", "404");
-        new ProjectDetails("Siepie and Takkie Dialog system", "Finishing the dialog system for the orgiginal", "Projects/SiepieAndTakkieDialogSystem", "images/projects/SiepieAndTakkieDialogDummy.png", new string[] { "C#", "Unity", "Jira" }, "6 Weeks", "https://github.com/Entropy-Entertainment/Siepie");
-        new ProjectDetails("Portfolio", "My personal portfolio website", "Projects/Portfolio", "404", new string[] { "C#", "Blazor", "CSS" }, "2 Weeks", "404");
+        new ProjectDetails("The Journey", "My first console app in NodeJS", "Projects/TheJourney", "images/projects/thejourney/Nathan.png", "1 Week", "https://github.com/Nx27-ma/BO-textbased-application/", new Dictionary<FilterOptions, string[]>() { { FilterOptions.Languages, ["JavaScript"] }, { FilterOptions.Frameworks, ["NodeJS"] }, {FilterOptions.Software, ["Paint.net"] } });
+        new ProjectDetails("First basic website", "First web project I ever made", "https://37214.hosts2.ma-cloud.nl/Module2.1/Skill/LandingPage", "images/projects/dizzy.png", "1 Week", "404", new Dictionary<FilterOptions, string[]>() { { FilterOptions.Languages, ["HTML, CSS"] } });
+        new ProjectDetails("ColorTD", "Small tower defense game", "Projects/ColorTD", "images/projects/ColorTD.png", "6 Weeks", "https://github.com/Nx27-ma/colorTD", new Dictionary<FilterOptions, string[]>() { { FilterOptions.Languages, ["C#"] }, { FilterOptions.Frameworks, ["UnityEngine"] }, { FilterOptions.Software, ["Trello"] } });
+        new ProjectDetails("Hollow Knight Slice", "A small copy of Hollow Knight", "Projects/HollowKnightSlice", "images/projects/HK.jpg", "4 Weeks", "https://github.com/Entropire/HungryNight", new Dictionary<FilterOptions, string[]>() { { FilterOptions.Languages, ["C#"] }, {FilterOptions.Frameworks, ["UnityEngine"] }, { FilterOptions.Software, ["Trello"] } });
+        new ProjectDetails("Siepie and Takkie", " A project with Swedes and the Dutch", "Projects/SiepieAndTakkieOriginal", "images/projects/SiepieTakkiePoster.png", "3 Weeks", "https://github.com/Nx27-ma/siepie", new Dictionary<FilterOptions, string[]>() { { FilterOptions.Languages, ["C#"] }, { FilterOptions.Frameworks, ["UnityEngine"] } });
+        new ProjectDetails("Entropy Jam", "A game jam I hosted", "Projects/EntropyJam", "images/projects/EntropyJam.jpg", "3 days", "", new Dictionary<FilterOptions, string[]>() { { FilterOptions.Languages, [] } });
+        new ProjectDetails("Siepie and Takkie Dialog system", "Finishing the dialog system", "Projects/SiepieAndTakkieDialogSystem", "images/projects/SiepieTakkiePoster.png", "6 Weeks", "https://github.com/Entropy-Entertainment/Siepie", new Dictionary<FilterOptions, string[]>() { { FilterOptions.Languages, ["C#, UXML"] }, { FilterOptions.Frameworks, ["UnityEngine"] } });
+        new ProjectDetails("Portfolio", "My personal portfolio website", "Projects/Portfolio", "images/projects/BlazorIcon.png", "Forever I suppose", "https://github.com/Nx27/PortfolioNXBI", new Dictionary<FilterOptions, string[]>() { { FilterOptions.Languages, ["C#, Razor, HTML, CSS"] }, { FilterOptions.Frameworks, ["Blazor WASM, ASP.NET"] } });
       }
       return AllProjects;
+    }
+    public static List<ProjectDetails> GetByNames(params string[] names)
+    {
+      GetAllProjects();
+
+      var set = new HashSet<string>(names ?? Array.Empty<string>(), StringComparer.OrdinalIgnoreCase);
+      return AllProjects.Where(p => set.Contains(p.Name)).ToList();
     }
   }
 }

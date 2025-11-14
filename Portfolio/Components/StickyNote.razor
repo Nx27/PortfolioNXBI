@@ -1,40 +1,42 @@
 ﻿@{
-	var targetString = OpenTo switch
-	{
-		TargetType.BlankPage => "_blank",
-		TargetType.Self => "_self",
-		TargetType.Parent => "_parent",
-		TargetType.Top => "_top",
-		_ => "_self"
-	};
+  var targetString = OpenTo switch
+  {
+    TargetType.BlankPage => "_blank",
+    TargetType.Self => "_self",
+    TargetType.Parent => "_parent",
+    TargetType.Top => "_top",
+    _ => "_self"
+  };
+}
+@if (OpenTo != TargetType.Self)
+{
+  <a href="@Link" target="@targetString">
+    <div class="StickyNote">
+      <h3>@Text </h3><img class="PixelArt" src="./images/logos/Git.png" />
+    </div>
+  </a>
+}
+else
+{
+  <NavLink href="@Link">
+    <div class="StickyNote">
+      <h3>@Text </h3>
+    </div>
+  </NavLink>
 }
 
-<div class="StickyNote">
-	@if (OpenTo != TargetType.Self)
-	{
-		<a href="@Link" target="@targetString">
-			<h3>@Text</h3>
-		</a>
-	}
-	else
-	{
-		<NavLink href="@Link">
-			<h3>@Text</h3>
-		</NavLink>
-	}
 
-</div>
 
 @code {
-	[Parameter] public string Link { get; set; }
-	[Parameter] public string Text { get; set; } = "404";
-	[Parameter] public TargetType OpenTo { get; set; } = TargetType.Self;
+  [Parameter] public string Link { get; set; }
+  [Parameter] public string Text { get; set; } = "404";
+  [Parameter] public TargetType OpenTo { get; set; } = TargetType.Self;
 
-	public enum TargetType
-	{
-		BlankPage,
-		Self,
-		Parent,
-		Top
-	}
+  public enum TargetType
+  {
+    BlankPage,
+    Self,
+    Parent,
+    Top
+  }
 }

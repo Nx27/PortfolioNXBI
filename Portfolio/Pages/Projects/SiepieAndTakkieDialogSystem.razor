@@ -1,32 +1,38 @@
 ﻿@page "/Projects/SiepieAndTakkieDialogSystem"
-@inject SubBarController SubBarController
 
 <div class="ProjectPage">
   <DefaultProjectHeading CurrentProjectURL="Projects/SiepieAndTakkieDialogSystem" />
   <div class="ProjectDescription">
+    <div>
     <h3>Project description</h3>
     <span>
       The Siepie and Takkie Dialog system (I will be calling it the Dialog system from now on) is the dialog system I didn't get to finish in the scope of the <NavLink> original Siepie and Takkie game</NavLink>.
     </span>
+    </div>
     <span>
       The Dialog system is a scene based dialog manager that can load and unload dialog per scene.
       <CodeBlock CodeString=@dialogDeserializerString />
     </span>
     <span>
       Then the npcs can request the dialog from the DialogDeserializer class that holds the DialogData from the current scene.
-      <img src="https://placehold.net/default.png" />
+      The npc itself holds the ID for the exact sequence it wants to play. 
+      After that the npc calls the StartDialog method on the DialogManager with the dialog data it received from the DialogDeserializer.
 
     </span>
+    <img src="/images/projects/SiepieAndTakkieDialogDummy.png"/>
+
+    <h3>The whole system also has full test coverage</h3>
+    <span>Since I was completely new to the testing topic with no real clue as to how a unit test looked in the first place. I decided to spend some time looking at different testing frameworks since those seemed to get recommended for writing unit tests over and over again. So that arose two questions: Why use a testing framework? And what are the differences between the frameworks.</span>
+    <h3>The actual tests I wrote</h3>
+    <img style="width: 55%" src="/images/projects/TestLists.png" />
+    <CodeBlock CodeString=@UnitTest />
+    <span>For unit testing I decided to go with NUnit just because it’s already incorporated with unity’s testing framework. Without this integration, I wouldn’t have the testing UI in unity. So even though learning something newer and more flexible like xUnit might be more beneficial for other use cases, UTF (Unity testing framework) is completely integrated with NUnit.</span>
   </div>
 </div>
 
 
 @code {
-
   string dialogDeserializerString = CodeBlockDictionary.CodeBlocks["DialogDeserializer"];
+  string UnitTest = CodeBlockDictionary.CodeBlocks["UnitTest"];
 
-  protected override void OnInitialized()
-  {
-    SubBarController.SetSubBarContent("1", "2");
-  }
 }

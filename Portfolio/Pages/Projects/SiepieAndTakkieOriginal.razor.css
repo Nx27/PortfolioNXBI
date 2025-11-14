@@ -1,0 +1,23 @@
+.ProjectDescription {
+  display: flex;
+  gap: var(--GeneralMargin);
+  flex-direction: column;
+  width: 80%;
+}
+
+  .ProjectDescription > div:first-child {
+    margin-top: var(--GeneralMargin);
+  }
+
+.ProjectPage {
+  margin-bottom: var(--GeneralMargin);
+}
+
+img {
+  border: var(--PixelBorder) solid var(--Black);
+}
+
+iframe{
+  aspect-ratio: 1980/1080;
+}
+

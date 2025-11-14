@@ -7,24 +7,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\BlogIdeeen.txt" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.17" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.17" PrivateAssets="all" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="wwwroot\fonts\" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\BlogIdeeen.txt" />
     <None Include="wwwroot\JS\PixelDivs.js" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.21" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.21" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\images\logos\Linkedin.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
     <Content Update="wwwroot\staticwebapp.config.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -1,16 +1,17 @@
 ﻿<div class="LandingContainer">
-	<div class="Picture" style="background-image: url(@projectDetails.ImageUrl)">
-		<StickyNote Text="@projectDetails.Name" Link="@projectDetails.LinkToProject" OpenTo="@StickyNote.TargetType.BlankPage" />
-	</div>
+  <div class="Picture" style="background-image: url(@projectDetails.ImageUrl)">
+
+    <StickyNote Text="@projectDetails.Name" Link="@projectDetails.LinkToProject" OpenTo="@StickyNote.TargetType.BlankPage" />
+  </div>
 </div>
 
 
 @code {
-	[Parameter] public string CurrentProjectURL { get; set; }
-	ProjectDetails projectDetails;
+  [Parameter] public string CurrentProjectURL { get; set; }
+  ProjectDetails projectDetails;
 
-	protected override void OnInitialized()
-	{
-		projectDetails = ProjectDetails.GetAllProjects().Find(x => x.Url == CurrentProjectURL);
-	}
+  protected override void OnInitialized()
+  {
+    projectDetails = ProjectDetails.GetAllProjects().Find(x => x.Url == CurrentProjectURL);
+  }
 }
