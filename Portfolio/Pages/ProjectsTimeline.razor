@@ -3,10 +3,11 @@
 
 <div class="ProjectsTimeline">
   <div class="Middle">
-  <h1 style="text-wrap: nowrap; text-align:center; margin-top: var(--GeneralMargin);">My whole programming career so far</h1>
-         <span />
+    <h1 style="text-wrap: nowrap; text-align:center; margin-top: var(--GeneralMargin);">My whole programming career so
+      far</h1>
+    <span />
   </div>
-  @for (int j = projectDetails.Count - 1; j >= 0;  j--) 
+  @for (int j = projectDetails.Count - 1; j >= 0; j--)
   {
     var i = j;
     Console.Write(projectDetails.Count);
@@ -21,11 +22,12 @@
             {
               foreach (var details in projectDetails[i].Tags[tag])
               {
-                @details;
+                @details
+                ;
               }
               <br />
             }
-            
+
           </p>
         </div>
         <span />
@@ -34,7 +36,7 @@
       {
         <NavLink href=@projectDetails[i].Url>
           <div class="ProjectDetails" style="background-image: url(@projectDetails[i].ImageUrl)">
-            <div class="ProjectDescription">
+            <div class="ProjectTimeLineDescription">
               <ButtonStickyNote Text="@projectDetails[i].Name" />
               <ButtonStickyNote Text="@projectDetails[i].Description" />
             </div>
@@ -51,7 +53,7 @@
       {
         <NavLink href=@projectDetails[i].Url>
           <div class="ProjectDetails" style="background-image: url(@projectDetails[i].ImageUrl)">
-            <div class="ProjectDescription">
+            <div class="ProjectTimeLineDescription">
               <ButtonStickyNote Text="@projectDetails[i].Name" />
               <ButtonStickyNote Text="@projectDetails[i].Description" />
             </div>
@@ -62,12 +64,13 @@
       else
       {
         <div class="TimeInfo">
-        <p>Duration: @projectDetails[i].Time<br/>
-            @foreach(var tag in projectDetails[i].Tags.Keys)
+          <p>Duration: @projectDetails[i].Time<br />
+            @foreach (var tag in projectDetails[i].Tags.Keys)
             {
-              foreach(var details in projectDetails[i].Tags[tag])
+              foreach (var details in projectDetails[i].Tags[tag])
               {
-                @details;
+                @details
+                ;
               }
               <br />
             }
@@ -78,7 +81,8 @@
     </div>
 
   }
-  <h1 class="Middle" style="text-wrap: nowrap; text-align:center; margin-top: var(--GeneralMargin);">Start of my career</h1>
+  <h1 class="Middle" style="text-wrap: nowrap; text-align:center; margin-top: var(--GeneralMargin);">Start of my career
+  </h1>
 </div>
 
 
