@@ -6,7 +6,7 @@ namespace Portfolio.Logic.CS
   public class SubBarController
   {
     public event Action? ReRenderRequested;
-    public bool IsVisible = true;
+    public bool IsVisible = false;
     public List<string> SubBarContentLinks = new();
     /// <summary>
     /// Set SubBar component visible
