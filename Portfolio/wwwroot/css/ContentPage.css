@@ -1,0 +1,41 @@
+div.LandingContainer {
+  margin: auto;
+}
+
+.ProjectDescription img,
+.CodeBlockWrapper {
+  margin: calc(var(--GeneralMargin)/2) 0 calc(var(--GeneralMargin)/2) 0;
+}
+
+.ProjectDescription img {
+  border: var(--PixelBorder) solid var(--Black);
+  width: max-content;
+}
+
+.ProjectDescription {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+}
+
+.ProjectDescription h3 {
+  margin-top: var(--GeneralMargin);
+  margin-bottom: var(--PixelBorder);
+}
+
+.ImageGrid {
+  display: grid;
+  gap: var(--GeneralMargin);
+  grid-template-columns: 50% 50%;
+}
+
+.ImageGrid>img {
+  border: var(--PixelBorder) solid var(--Black);
+  width: 100%;
+  max-width: 100%;
+}
+
+.ProjectPage {
+  margin-bottom: var(--GeneralMargin);
+}
