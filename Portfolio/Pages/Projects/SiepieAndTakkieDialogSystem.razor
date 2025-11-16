@@ -6,20 +6,21 @@
     <div>
       <h3>Project description</h3>
       <span>
-        The dialog system is made for the game<NavLink> Siepie and Takkie game</NavLink>. It loads dialog per scene
+        The dialog system is made for the game <NavLink href="/Projects/SiepieAndTakkieOriginal">Siepie and Takkie
+        </NavLink>. It loads dialog per scene
         based on the file name and location.
         If it has loaded dialog it can display it and manage the conversation flow.
       </span>
     </div>
     <h3>How to use it</h3>
     <span>
-      In the scene where you want to use the dialog system attach the InitDialogSystem component to an empty GameObject.
-      From then on every scene gets checked for a corresponding json file in the default path:
+      In the scene where you want to use the dialog system attach the InitDialogSystem component to an empty
+      GameObject.
+      From then on every scene is checked for a corresponding JSON file in the default path:
     </span>
     <img src="/images/projects/siepietakkiedialogsystem/DefaultFilePathDialogSystem.png" />
     <span>
-      The InitDialogSystem instantly calls don't DontDestroyOnLoad(this.gameObject) in order for the per scene loading
-      to work.
+      The InitDialogSystem calls DontDestroyOnLoad(this.gameObject) so the per-scene loading works correctly.
     </span>
     <CodeBlock CodeString="@DontDestroyOnLoad" />
     <span>
@@ -27,7 +28,7 @@
       As seen in the void Start() the InitDialogSystem subscribes to the SceneManager.activeSceneChanged in order to
       listen for scene changes.
       When the scene changes it gets the new path for the json and then sets it as the new path for the Deserializer.
-      The Deserializer itself gets the actual json file through the Resources class.
+      The Deserializer itself gets the actual JSON file through the Resources class.
       Then when GetDeserializedObject gets called it returns the generic with which the class was instantiated.
       In this case it's the DialogData object.
     </span>
@@ -38,57 +39,51 @@
     <CodeBlock CodeString="@UID" />
     <span>
       UID is the unique identifier that binds the dialog to the npc (in order to bind it you need to set the UID for the
-      NpcDialogPreparer to the same number).
+      NpcDialogPreparer on the target NPC to the same number).
     </span>
     <CodeBlock CodeString="@SequenceID" />
     <span>
-      This is the identifier NpcDialogPreparer uses to iterate over the dialog.
-      The order at which the dialog is placed in the JSON doesnt matter as long as you properly assign the order with
-      this order.
+      This is the identifier NpcDialogPreparer uses to iterate over the dialog. The order of entries in the JSON
+      doesn't matter as long as you assign the sequence using this field.
     </span>
     <CodeBlock CodeString="@Speaker" />
     <span>
-      The character that's actually saying the dialog should be put here.
-      The keyword "PLAYER" gets the name of the character that interacted with the npc.
-      The dialog property should be self explanatory. It's the dialog the characters will say.<br />
+      The character who's actually speaking should be put here. The keyword "PLAYER" will be replaced with the name
+      of the character that interacted with the NPC. The dialog property should be self-explanatory; it's the text
+      the characters will say.<br />
     </span>
     <CodeBlock CodeString="@JsonExampleDialogData" />
     <span>
-      DialogData is then used to feed the data to the NpcDialogPreparer.
-      This class gets called when the NpcInteract receives an interaction request from the PlayerInteractor class.
-      NpcDialogPreparer then continues to instantiate the DialogTemplatePrefab and keeps a reference to the
-      UIDialogSequenceManager that's in the prefab.
+      DialogData is used to feed data to the NpcDialogPreparer. This class is called when NpcInteract receives
+      an interaction request from the PlayerInteractor. NpcDialogPreparer instantiates the DialogTemplatePrefab
+      and keeps a reference to the UIDialogSequenceManager that's in the prefab.
     </span>
     <img src="/images/projects/siepietakkiedialogsystem/DialogTemplatePrefab.png" />
+    <span>You should see something like this if you open it:</span>
+    <img src="/images/projects/siepietakkiedialogsystem/UXMLVisual.png" />
     <span>
-      The UIDialogSequenceManager is the layer that directly controls the UI.
-      It does so by Querying the UXML document for it's elements. It does this by searching for the Tags that I set up
-      in the UXML document.
+      The UIDialogSequenceManager is the layer that directly controls this UI. It queries the UXML document for
+      its elements and searches for the tags that were set up in the UXML document.
     </span>
-    <img src="/images/projects/UXMLTags.png" />
+    <img src="/images/projects/siepietakkiedialogsystem/UXMLTags.png" />
     <CodeBlock CodeString="@UIDialogSequenceManagerQuery" />
-    <span>Once all the references and instances are in place, NpcDialogPreparer keeps listening to NpcInteract in order
-      to iterate through the DialogData.Lines
+    <span>
+      Once all references and instances are in place, NpcDialogPreparer keeps listening to NpcInteract to know
+      when to iterate through the dialog lines until the dialog is finished.<br />
+      This is my result:
     </span>
-
-
-
-    <span>This is the visual layout of the UXML document.</span>
-    <img src="/wwwroot/images/projects/siepietakkiedialogsystem/UXMLVisual.png" <img
-      src="/images/projects/SiepieAndTakkieDialogDummy.png" />
+    <img src="/images/projects/siepietakkiedialogsystem/TakkieTakkieDialog.gif" />
 
     <h3>The whole system also has full test coverage</h3>
-    <span>Since I was completely new to the testing topic with no real clue as to how a unit test looked in the first
-      place. I decided to spend some time looking at different testing frameworks since those seemed to get recommended
-      for writing unit tests over and over again. So that arose two questions: Why use a testing framework? And what are
-      the differences between the frameworks.</span>
+    <span>I was new to testing and had no real clue how a unit test looked. I spent time reviewing different testing
+      frameworks because they were commonly recommended for writing unit tests. That raised two questions: why use a
+      testing framework, and what are the differences between them?</span>
     <h3>The actual tests I wrote</h3>
-    <img style="width: 55%" src="/images/projects/TestLists.png" />
+    <img src="/images/projects/TestLists.png" />
     <CodeBlock CodeString=@UnitTest />
-    <span>For unit testing I decided to go with NUnit just because it’s already incorporated with unity’s testing
-      framework. Without this integration, I wouldn’t have the testing UI in unity. So even though learning something
-      newer and more flexible like xUnit might be more beneficial for other use cases, UTF (Unity testing framework) is
-      completely integrated with NUnit.</span>
+    <span>For unit testing I chose NUnit because it's already incorporated with Unity's testing framework. Without this
+      integration I wouldn't have the testing UI in Unity. Although learning a different framework like xUnit can be
+      useful, the Unity Test Framework (UTF) is fully integrated with NUnit.</span>
   </div>
 </div>
 
