@@ -6,17 +6,19 @@
 .Logos {
   place-content: center;
   margin-top: var(--GeneralMargin);
+  margin-bottom: var(--GeneralMargin);
   display: flex;
   gap: 40px;
 }
 
-  .Logos * {
-    width: 80px;
-    aspect-ratio: 1/1;
+.Logos * {
+  width: 80px;
+  aspect-ratio: 1/1;
 
-  }
+}
 
-img, input {
+img,
+input {
   display: block;
   aspect-ratio: 1/1;
   border: var(--PixelBorder) solid var(--Black);
