@@ -13,29 +13,43 @@ img {
   width: 20%
 }
 
+details * {
+  width: fit-content;
+}
+
 details summary {
   display: block;
 }
 
-.Details details summary, 
-.Details details p{
+.Details details summary,
+.Details details p {
   border: var(--PixelBorder) solid var(--Black);
 }
 
-.Details > details details,
-.Details > details details p{
+.Details>details details,
+.Details>details details p {
   margin-left: var(--GeneralMargin);
 }
 
-.Details > details {
+.Details>details {
   margin-top: var(--GeneralMargin);
 }
 
-.Details  ul {
+.Details ul {
   list-style: none;
 }
 
 .Details li,
-.Details li details p{
+.Details li details p {
   margin-top: 0.5em;
+}
+
+#Dislikes summary,
+#Dislikes p {
+  background-color: rgb(233, 88, 88);
+}
+
+#Likes summary,
+#Likes p {
+  background-color: rgb(131, 229, 131);
 }
