@@ -1,8 +1,4 @@
-﻿.ProjectPage {
-  height: 100%;
-}
-
-.LandingContainer {
+﻿.LandingContainer {
   aspect-ratio: 4/2.5;
   width: 80%;
   display: flex;
@@ -23,8 +19,8 @@
   align-items: flex-end;
 }
 
-  .Picture ::deep div {
-    position: relative;
-    bottom: -2%;
-    right: -2%
-  }
+.Picture ::deep div {
+  position: relative;
+  bottom: -2%;
+  right: -2%
+}

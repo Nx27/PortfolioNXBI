@@ -73,17 +73,17 @@ p{
     width: 30vw;
   }
 
-.ProjectDescription{
+.ProjectTimeLineDescription{
   position: absolute;
   height: 100%;
 }
 
-  .ProjectDescription > ::deep div.StickyNote:first-child {
+  .ProjectTimeLineDescription > ::deep div.StickyNote:first-child {
     position: absolute;
     bottom:   var(--GeneralMargin);
   }
 
-  .ProjectDescription > ::deep div.StickyNote {
+  .ProjectTimeLineDescription > ::deep div.StickyNote {
     position: absolute;
     bottom: calc((var(--PixelBorder)*2) * -1);
     left: calc((var(--PixelBorder)*2) * -1);
