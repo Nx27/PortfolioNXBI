@@ -9,14 +9,18 @@
 .Content {
   background-image: none;
   padding: var(--GeneralMargin);
-  padding-bottom:0;
+  padding-bottom: 0;
   display: flex;
   flex-direction: column;
   width: calc(100% - (var(--FrameWidth) * 2));
 }
 
-.RightSideSpace, .LeftSideSpace {
+.RightSideSpace,
+.LeftSideSpace {
   background-image: none;
   width: var(--FrameWidth);
 }
 
+#nobg {
+  background-image: none !important;
+}

@@ -1,17 +1,31 @@
 ﻿@inherits LayoutComponentBase
 @inject SubBarController SubBarController
+@inject NavigationManager navigationManager
 
 <Header />
-<div>
-	<div class="LeftSideSpace">
+@if (navigationManager.Uri.Replace(navigationManager.BaseUri, "") == "About")
+{
+	<div id="nobg">
+		<div class="LeftSideSpace">
 			<SubPageBar />
+		</div>
+		<div class="Content">
+			@Body
+		</div>
+		<div class="RightSideSpace">
+		</div>
 	</div>
-	<div class="Content">
-		@Body
+}
+else
+{
+	<div>
+		<div class="LeftSideSpace">
+			<SubPageBar />
+		</div>
+		<div class="Content">
+			@Body
+		</div>
+		<div class="RightSideSpace">
+		</div>
 	</div>
-	<div class="RightSideSpace">
-	</div>
-</div>
-
-
-
+}

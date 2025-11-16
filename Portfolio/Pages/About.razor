@@ -5,18 +5,21 @@
     I'm Dutch, @age years old and currently studying software development.
     I'm fascinated by all aspects of game development, but I'm particularly drawn to team workflows.
     As for my hobbies, I spend most of my free time online gaming with friends.
-    We’ve got a nice little all Dutch gaming/development group. I can always ask for support from them if I’m stuck on something.
-    When I’m not calling or vibing with them I’m either coding, learning a language, drawing, working out or on the archery range.
+    We’ve got a nice little all Dutch gaming/development group. I can always ask for support from them if I’m stuck on
+    something.
+    When I’m not calling or vibing with them I’m either coding, learning a language, drawing, working out or on the
+    archery range.
     My most important qualities from my perspective would probably be my honesty, directness and my drivenness.
-    When introduced to a new subject I will go for it with everything I’ve got. Same goes for taking the lead in my project groups.
+    When introduced to a new subject I will go for it with everything I’ve got. Same goes for taking the lead in my
+    project groups.
     I enjoy making sure that my projects run nice and smooth with proper communication.
   </p>
   <img src="/images/nora@0.5x.png" />
 </div>
 
 <div class="Details">
-  <details class="FoldoutContent">
-    <summary>Likes</summary>
+  <details id="Likes" class="FoldoutContent">
+    <summary>+ Likes</summary>
     <ul>
       @foreach (var like in likes)
       {
@@ -30,8 +33,8 @@
     </ul>
   </details>
 
-  <details class="FoldoutContent">
-    <summary>Dislikes</summary>
+  <details id="Dislikes" class="FoldoutContent">
+    <summary>- Dislikes</summary>
     <ul>
       @foreach (var dislike in dislikes)
       {
@@ -51,23 +54,23 @@
   int age;
   string spotifyAPILenght = "1848";
   Dictionary<string, string> likes = new Dictionary<string, string>
-  {
-    {"+ Gaming", "I currently play Satisfactory, Factorio, Hollow knight (Silksong too) and Apex Ledgends"},
-    {"+ Programming","I like the challenge more than the \"what\" I'm making. Currently learning assembly because it's closer to the hardware than anything else."},
-    {"+ Working out", "I find it relaxing when do my workout circuits." },
-    {"+ Learning new languages", "I enjoy understanding different people in their own native language. It also passively widens your understanding of the language you're learning."},
-    {"+ Spending time with friends","I like going out or doing a group activity from time to time, even though I'm not a huge chatter, I like listening to other peoples stories."},
-    {"+ Drawing", "I'm definitely still an amateur but I'm actively learning anatomy in order to draw the characters I find cool in my own style." },
-    {"+ Sushi", "Yum :)" }
-  };
+{
+{"+ Gaming", "I currently play Satisfactory, Factorio, Hollow knight (Silksong too) and Apex Ledgends"},
+{"+ Programming","I like the challenge more than the \"what\" I'm making. Currently learning assembly because it's closer to the hardware than anything else."},
+{"+ Working out", "I find it relaxing when do my workout circuits." },
+{"+ Learning new languages", "I enjoy understanding different people in their own native language. It also passively widens your understanding of the language you're learning."},
+{"+ Spending time with friends","I like going out or doing a group activity from time to time, even though I'm not a huge chatter, I like listening to other peoples stories."},
+{"+ Drawing", "I'm definitely still an amateur but I'm actively learning anatomy in order to draw the characters I find cool in my own style." },
+{"+ Sushi", "Yum :)" }
+};
 
   Dictionary<string, string> dislikes = new Dictionary<string, string>
-  {
-    {"- Laziness", "I see people on social media all the time. I can't judge but it does bother me. Do they not think that they're wasting time?"},
-    {"- Poor communication", "I hate it when I'm left wondering if someone is going to show up to an appointment. ESPECIALLY when they don't show up after I asked them multiple times."},
-    {"- False promises", "Don't promise a deadline you know you won't make. Nobody gains from this."},
-    {"- Cheese", "Just.. no thanks" }
-  };
+{
+{"- Laziness", "I see people on social media all the time. I can't judge but it does bother me. Do they not think that they're wasting time?"},
+{"- Poor communication", "I hate it when I'm left wondering if someone is going to show up to an appointment. ESPECIALLY when they don't show up after I asked them multiple times."},
+{"- False promises", "Don't promise a deadline you know you won't make. Nobody gains from this."},
+{"- Cheese", "Just.. no thanks" }
+};
 
   protected override void OnInitialized()
   {
@@ -77,6 +80,6 @@
 
   void showContent()
   {
-    
+
   }
 }
