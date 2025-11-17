@@ -5,37 +5,93 @@
   <div class="ProjectDescription">
     <h3>Project description</h3>
     <span>
-      I built a Blazor site to display the projects i'm proud of. But one of the projects I'm proud of is this portfolio site itself.
-      As we only learnt unity and unreal at my study it was a real challenge because I didn't really know basic web development things.
-      Like how a DOM works for example or routing on the client vs routing on server.
+      I built a Blazor site to display projects I'm proud of including this portfolio itself.
+      Because we only learned Unity and Unreal during my studies, web development was a real challenge: I wasn't
+      familiar
+      with basic web concepts such as how the DOM works or the difference between client-side and server-side routing.
     </span>
     <h3>How the start of the project went</h3>
     <span>
       At the beginning of the project I was advised by my one of my classmates to build my portfolio site with React.
-      So with little Javascript knowledge I started off with React.
-      It was very daunting but I managed to get a basic portfolio site going.
-      After I took a break however I forgot most of what I made and when I read through the Html/Javascript blend,
-      I just thought: "surely something with more comprehensible syntax must exist".
-      I had already heard of Blazor before so I decided to give it a try.
+      So with little JavaScript knowledge I started off with React.
+      It was very daunting but I managed to get a basic portfolio site going;
+      it would probably be last in a beauty contest though...
+    </span>
+
+    <span>
+      After a break, I forgot most of what I had made, and when I read through the HTML/TypeScript mix I thought,
+      "Surely something with more comprehensible syntax must exist." I had already heard of Blazor, so I decided to give
+      it a try.
     </span>
     <h3>The start of the Blazor project</h3>
     <span>
-      After transferring some HTML and CSS code from my React project I got a basic Blazor site.
-      I didn't have to learn that much new syntax and just looked at the template code whenever I didn't know how to do something.
-      Syntax wise Blazor felt like a breeze compared to React.
-      The organization was now way better as I already knew from the React page what layout I wanted.
-      So I adjusted my Blazor project accordingly.
-      What I enjoyed the most about Blazor was the routing system en the built-in scoped css.
-      What took me the most time however was figuring out what the wwwroot was. Or what a static page meant in the first place.
-      Pretty silly looking back now. But also not that weird that I didn't understand looking back now. 
-      I'd only ever used .NET itself so far. And only in game programming context.
-      Oh well atleast I know now.
+      After transferring HTML and CSS from my React project, I had a basic Blazor site. I didn't need to learn a lot of
+      new syntax; I just used the template code as a reference. The Razor syntax felt easier compared to React, and
+      already knowing the layout of the elements really helped. The designs I made in Adobe XD reinforced that.
     </span>
-    
+    <div class="ImageGrid"><img class="first" src="/images/projects/portfoliowebsite/Projectlayout.png" />
+      <img class="second" src="/images/projects/portfoliowebsite/Projectpreviews.png" />
+    </div>
+    <img src="/images/projects/portfoliowebsite/Landingpage.png" />
+    <span>
+      You might recognize some elements from my React site. Some from the current design and some didn't make the cut.
+      Some more modern designs are also present. Like these:
+    </span>
+    <div class="ImageGrid">
+      <img src="/images/projects/portfoliowebsite/AboutMeDesign.png" />
+      <img src="/images/projects/portfoliowebsite/ProjectTimeLineDesign.png" />
+    </div>
+
+    <h3>The development process</h3>
+    <span>
+      What I enjoyed most about Blazor was the routing system and the built-in scoped CSS. What took me the most time,
+      however, was figuring out what the wwwroot is and what a static page means. That seems silly in hindsight, but
+      it's
+      understandable given my background: I'd only used .NET in a game programming context before.
+      I didn't expect to navigate to a folder on the server to retrieve HTML. Obviously that's not how a Blazor
+      WebAssembly app works: a Blazor WASM app is downloaded to the client and runs locally. I'm glad I realized that
+      early on.
+    </span>
+
+    <h3>Switching host</h3>
+    <span>
+      GitHub Pages doesn't support client-side navigation for Blazor WASM apps (it will always look for an HTML file
+      at the URI path). Blazor doesn't use hash-based routing either, so switching hosting became necessary. I chose
+      Azure Static Web Apps because it has a free tier and supports Blazor WASM apps out of the box. When I first
+      pushed the site to Azure, I forgot to set a root fallback.
+    </span>
+    <CodeBlock CodeString=@staticwebconfig />
+    <span>
+      When I tried to push this staticwebapp.config.json to Azure however it just rejected it with some weird characters
+      attached to my file. I had never seen those in my file and I surely didn't add them myself.
+      Apparently Visual Studio was saving the file with BOM encoding which Azure didn't like.
+      After resaving the file without BOM everything worked perfectly.
+      Now only thing was left to do...
+    </span>
+
+    <h3>DNS configuration</h3>
+    <span>
+      Setting up a custom domain on Azure was actually pretty easy.
+      As I already struggled with DNS settings before with GitHub I knew what a CNAME and TXT record were.
+      Azure just had those ready for me to copy paste in my DNS provider.
+      After setting up the CNAME record and verifying ownership through a TXT record my custom domain was live in no
+      time (for DNS standards I mean).
+      As only two SSL certificates are allowed on the free tier I set one of my domains on redirect. This required
+      migrating it to Cloudflare as my previous DNS provider didn't support HTTPS -> HTTPS redirects.
+      Now <a>https://noradegreeuw.nl</a> redirects to <a>https://noradegreeuw.dev</a> as I don't have a Dutch version
+      set up yet.
+    </span>
     <h3>Where I am now</h3>
-    <span>I think this razor file is decent representation of wat I feel comfortable writing in Blazor. These are the elements making up the project timeline visible on the projects page</span>
-    <CodeBlock CodeString=@CodeBlockDictionary.CodeBlocks["PortfolioGrid"] />
+    <span>I think I'll never be done with this site. I enjoy writing blogs for it (even though they are very time
+      consuming).
+      And since I've also become pretty comfortable with CSS and Razor in general maintaining a website has become
+      pretty
+      fun. Next on the menu is migrating all eligible data to MongoDB and hopefully learning backend properly in the
+      process.</span>
   </div>
 </div>
 
+@code {
+  string staticwebconfig = CodeBlockDictionary.CodeBlocks["staticwebconfig"];
+  string PortfolioGrid = CodeBlockDictionary.CodeBlocks["PortfolioGrid"];
 }

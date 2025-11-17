@@ -233,6 +233,17 @@ namespace Portfolio.Logic.CS
         """
         public int Speaker { get; set; }
         """
+      },
+      {
+        "Dialog",
+        """
+        {
+          "navigationFallback": {
+          "rewrite": "/index.html"
+          }
+        }
+
+        """
       }
     };
   }
