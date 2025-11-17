@@ -69,6 +69,11 @@ p{
   border: var(--PixelBorder) solid var(--Black);
 }
 
+  .ProjectDetails:hover {
+    filter: brightness(80%);
+    cursor: pointer;
+  }
+
   .ProjectDetails > img {
     width: 30vw;
   }

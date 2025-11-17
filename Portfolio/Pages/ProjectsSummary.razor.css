@@ -7,6 +7,11 @@
   gap: var(--GeneralMargin);
 }
 
+.BestWorkProject:hover {
+  filter: brightness(80%);
+  cursor: pointer;
+}
+
 
 .BestWorkProject {
   background-position: center;
