@@ -3,13 +3,14 @@ div.LandingContainer {
 }
 
 .ProjectDescription img,
-.CodeBlockWrapper {
+.CodeBlockWrapper, iframe {
   margin: calc(var(--GeneralMargin)/2) 0 calc(var(--GeneralMargin)/2) 0;
 }
 
 .ProjectDescription img {
   border: var(--PixelBorder) solid var(--Black);
   width: max-content;
+  max-width: 100%;
 }
 
 .ProjectDescription {
@@ -27,7 +28,7 @@ div.LandingContainer {
 .ImageGrid {
   display: grid;
   gap: var(--GeneralMargin);
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 1fr 1fr;
 }
 
 .ImageGrid>img {
@@ -38,4 +39,26 @@ div.LandingContainer {
 
 .ProjectPage {
   margin-bottom: var(--GeneralMargin);
+}
+
+a{
+  color: var(--DarkBlue);
+  text-decoration: underline;
+}
+
+iframe{
+  aspect-ratio: 1920/1080;
+}
+
+.ProjectDescription .StickyNote > h3 {
+  margin: 0;
+}
+
+.ProjectDescription .StickyNote {
+  width: fit-content;
+  margin-top: var(--GeneralMargin);
+}
+
+.StickyNote {
+  padding: 0 var(--PixelBorder) 0 var(--PixelBorder);
 }

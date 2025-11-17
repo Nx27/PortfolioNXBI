@@ -1,36 +1,14 @@
 ﻿@page "/Projects/ColorTD"
 
 <div class="ProjectPage">
-  <DefaultProjectHeading CurrentProjectURL="Projects/ColorTD" />
-  <div class="ProjectDescription">
-    <div>
-      <h3>Project description</h3>
-
-      <span>
-        We weren't present at the original reveal of all the possible slice projects but once I got a whiff of all the entries. I knew instantly which game I wanted to make a replica off: Hollow knight. Since most of the group was chosen for the international collaboration project. There wasn't much time left to work together at school.
-      </span>
-    </div>
-    <h3>The first two weeks</h3>
-    <span>
-      Nonetheless I tried to get the team through. Together we ended up with a workflow that felt more between kaban and waterfall in. Because we were all aware we only had 2 weeks before the interruption of the collaboration project. We sat together the first day just planning, figuring out what was needed and writing user stories (that were way too big looking back now). But we had a game plan. From then on out we had standups every day and jumped in quickly to help one and other if we felt it was nessescary. We finished the first sprint with a decent draft and confidence we could make the deadline.
-    </span>
-    <h3>
-      The two weeks after
-    </h3>
-    <span>
-      Oh boy did we underestimated how rough coming back to this project was. After going through all the code and looking at the art we realized that there was a lot of work to be done. So we spent a day inventorizing everything and made a new planning for the upcoming two weeks. It was going to be rough. But we still made it. It doesn't win a beauty contest but we have a finished demo.
-    </span>
-    <h3>My hosting and domain name adventures</h3>
-    <span>
-      As GitHub pages was my first choice for hosting I had to figure out how to host a Blazor site on GitHub pages.
-      Luckily I quickly found out about the existence of Jekyll. Jekyll was able to build en deploy the Blazor site to GitHub pages.
-      Very nice for me as I just pushed to the main branch on GitHub and Jekyll took care of the rest.
-    </span>
-  </div>
+  <p>Sorry this page is still in the works.</p>
+  <a target="_blank" href="@projectDetails.First().LinkToProject">Feel free to check out the GitHub anyways.</a>
 </div>
 
 @code {
+  List<ProjectDetails> projectDetails;
   protected override void OnInitialized()
   {
+    projectDetails = ProjectDetails.GetByNames("ColorTD");
   }
 }

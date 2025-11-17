@@ -1,3 +1,19 @@
 @page "/projects/FirstWebsite"
 
+<div class="ProjectPage">
+  <p>Sorry this page is still in the works.<br/>
+    You can check out the page here though</p>
+</div>
+
+
+
+
 <iframe src="https://37214.hosts2.ma-cloud.nl/Module2.1/Skill/LandingPage/"></iframe>
+
+@code {
+  List<ProjectDetails> projectDetails;
+  protected override void OnInitialized()
+  {
+    projectDetails = ProjectDetails.GetByNames("First basic website");
+  }
+}
