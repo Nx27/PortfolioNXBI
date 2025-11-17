@@ -5,19 +5,19 @@
   <div class="BestWorkProjects">
     @foreach (var project in favProjects)
     {
-        <NavLink href=@project.Url>
-          <div class="BestWorkProject" style="background-image: url(@project.ImageUrl)">
-            <div class="BestWorkProjectDescription">
-              <ButtonStickyNote Text="@project.Name" />
-            </div>
+      <NavLink href=@project.Url>
+        <div class="BestWorkProject" style="background-image: url(@project.ImageUrl)">
+          <div class="BestWorkProjectDescription">
+            <ButtonStickyNote Text="@project.Name" />
           </div>
-        </NavLink>
+        </div>
+      </NavLink>
     }
   </div>
 </div>
-<ProjectsTimeline/>
+<ProjectsTimeline />
 
 
 @code {
-  List<ProjectDetails> favProjects = ProjectDetails.GetByNames("Siepie and Takkie Dialog system", "Portfolio");
+  List<ProjectDetails> favProjects = ProjectDetails.GetByNames("Dialog system", "Portfolio");
 }
