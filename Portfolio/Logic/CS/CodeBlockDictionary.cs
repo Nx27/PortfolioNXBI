@@ -235,15 +235,17 @@ namespace Portfolio.Logic.CS
         """
       },
       {
-        "Dialog",
-        """
-        {
-          "navigationFallback": {
-          "rewrite": "/index.html"
-          }
-        }
-
-        """
+        "staticwebconfig",
+        "        \"\"\"\r\n" +
+   "        {\r\n" +
+   "          \"navigati" +
+   "onFallback\": {\r\n" +
+   "          \"rewrite" +
+   "\": \"/index.html\"" +
+   "\r\n" +
+   "          }\r\n" +
+   "        }\r\n\r\n" +
+   "        \"\"\""
       }
     };
   }
