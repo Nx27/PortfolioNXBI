@@ -1,4 +1,5 @@
 ﻿@using System.Threading.Tasks
+@using System.Text
 @inject IJSRuntime JS
 
 <div class="ProjectsTimeline">
@@ -7,79 +8,65 @@
       far</h1>
     <span />
   </div>
-  @for (int j = projectDetails.Count - 1; j >= 0; j--)
+  @if (projectDetails != null)
   {
-    var i = j;
-    Console.Write(projectDetails.Count);
-    Console.Write(i);
-    <div class="leftright1">
-      @if ((i + 1) % 2 == 1)
-      {
-        <div class="TimeInfo">
-          <p>
-            Duration: @projectDetails[i].Time<br />
-            @foreach (var tag in projectDetails[i].Tags.Keys)
-            {
-              foreach (var details in projectDetails[i].Tags[tag])
-              {
-                @details
-                ;
-              }
-              <br />
-            }
-
-          </p>
-        </div>
-        <span />
-      }
-      else
-      {
-        <NavLink href=@projectDetails[i].Url>
-          <div class="ProjectDetails" style="background-image: url(@projectDetails[i].ImageUrl)">
-            <div class="ProjectTimeLineDescription">
-              <ButtonStickyNote Text="@projectDetails[i].Name" />
-              <ButtonStickyNote Text="@projectDetails[i].Description" />
-            </div>
+    @for (int j = projectDetails.Count - 1; j >= 0; j--)
+    {
+      var i = j;
+      Console.Write(projectDetails.Count);
+      Console.Write(i);
+      <div class="leftright1">
+        @if ((i + 1) % 2 == 1)
+        {
+          <div class="TimeInfo">
+            <p>
+              Duration: @projectDetails[i].Time<br />
+            <pre>@getTagString(projectDetails[i].Tags)</pre>
+            </p>
           </div>
-        </NavLink>
-        <span />
-      }
-
-    </div>
-    <div class="Middle"><span /></div>
-
-    <div class="leftright0">
-      @if ((i + 1) % 2 == 1)
-      {
-        <NavLink href=@projectDetails[i].Url>
-          <div class="ProjectDetails" style="background-image: url(@projectDetails[i].ImageUrl)">
-            <div class="ProjectTimeLineDescription">
-              <ButtonStickyNote Text="@projectDetails[i].Name" />
-              <ButtonStickyNote Text="@projectDetails[i].Description" />
+          <span />
+        }
+        else
+        {
+          <NavLink href=@projectDetails[i].Url>
+            <div class="ProjectDetails" style="background-image: url(@projectDetails[i].ImageUrl)">
+              <div class="ProjectTimeLineDescription">
+                <ButtonStickyNote Text="@projectDetails[i].Name" />
+                <ButtonStickyNote Text="@projectDetails[i].Description" />
+              </div>
             </div>
-          </div>
-        </NavLink>
-        <span />
-      }
-      else
-      {
-        <div class="TimeInfo">
-          <p>Duration: @projectDetails[i].Time<br />
-            @foreach (var tag in projectDetails[i].Tags.Keys)
-            {
-              foreach (var details in projectDetails[i].Tags[tag])
-              {
-                @details
-                ;
-              }
-              <br />
-            }
-          </p>
-        </div>
-        <span />
-      }
-    </div>
+          </NavLink>
+          <span />
+        }
 
+      </div>
+      <div class="Middle"><span /></div>
+
+      <div class="leftright0">
+        @if ((i + 1) % 2 == 1)
+        {
+          <NavLink href=@projectDetails[i].Url>
+            <div class="ProjectDetails" style="background-image: url(@projectDetails[i].ImageUrl)">
+              <div class="ProjectTimeLineDescription">
+                <ButtonStickyNote Text="@projectDetails[i].Name" />
+                <ButtonStickyNote Text="@projectDetails[i].Description" />
+              </div>
+            </div>
+          </NavLink>
+          <span />
+        }
+        else
+        {
+          <div class="TimeInfo">
+            <p>Duration: @projectDetails[i].Time<br />
+              @getTagString(projectDetails[i].Tags)
+            </p>
+          </div>
+          <span />
+        }
+      </div>
+
+    }
   }
   <h1 class="Middle" style="text-wrap: nowrap; text-align:center; margin-top: var(--GeneralMargin);">Start of my career
   </h1>
@@ -95,4 +82,30 @@
   {
     projectDetails = ProjectDetails.GetAllProjects();
   }
+
+  Microsoft.AspNetCore.Components.MarkupString getTagString(Dictionary<ProjectDetails.FilterOptions, string[]> tags)
+  {
+    if (tags == null || tags.Count == 0) return new Microsoft.AspNetCore.Components.MarkupString(string.Empty);
+
+    // Iteration order
+    var order = new[] { ProjectDetails.FilterOptions.Frameworks, ProjectDetails.FilterOptions.Languages,
+ProjectDetails.FilterOptions.Software };
+    var lines = new List<string>();
+
+    foreach (var key in order)
+    {
+      if (tags.TryGetValue(key, out var arr) && arr != null)
+      {
+        var values = arr.Where(s => !string.IsNullOrWhiteSpace(s)).ToArray();
+        if (values.Length == 0) continue;
+        // Comma-join values for this category
+        lines.Add(string.Join(", ", values));
+      }
+    }
+
+    // Join categories with a line break; avoid trailing break
+    var result = string.Join("<br/>", lines);
+    return new Microsoft.AspNetCore.Components.MarkupString(result);
+  }
+
 }
