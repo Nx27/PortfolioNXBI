@@ -6,8 +6,8 @@
     <div>
       <h3>Project description</h3>
       <span>
-        The dialog system is made for the game <NavLink href="/Projects/SiepieAndTakkieOriginal">Siepie and Takkie
-        </NavLink>. It loads dialog per scene
+        The dialog system is made for the game
+        <NavLink href="/Projects/SiepieAndTakkieOriginal">Siepie and Takkie</NavLink>. It loads dialog per scene
         based on the file name and location.
         If it has loaded dialog it can display it and manage the conversation flow.
       </span>
@@ -83,7 +83,8 @@
     <span>Testing frameworks are used because they can handle things for you.
       They give more detailed reports on test results, have built-in assertions, and generally have some sort of editor
       integration.
-      Most of the time they also have syntax that encourages the AAA pattern which makes tests easier to read and modify.
+      Most of the time they also have syntax that encourages the AAA pattern which makes tests easier to read and
+      modify.
       So it's not necessary to use a testing framework, but it can make writing and maintaining tests easier.
       As for the question about differences between frameworks I compared NUnit, MSTest and xUnit.
       There weren't any significant differences in my eyes.
@@ -92,10 +93,14 @@
       integrated with Unity's testing framework.
       So I settled on NUnit.
     </span>
+    <img src="images/projects/siepietakkiedialogsystem/FailingPassingTests.png" />
     <h3>What I ended up doing</h3>
-    <span>For this project I applied the test driven development pattern.
+    <span> For this project I applied the test driven development pattern.
       That meant writing unit tests for every class before writing the actual implementation of the class.
-      I wrote tests for the Deserializer class, the DialogData class and the NpcDialogPreparer class.
+      I wrote tests for as many of the dialog system classes possible. Take the Deserializer class here for example:
+    </span>
+    <CodeBlock CodeString="@UnitTest" />
+    <span>
       Writing the tests first made me look differently at the implementation of the classes.
       I had to make sure the classes were testable which meant classes had to be more modular, accessible and have less
       dependencies.
