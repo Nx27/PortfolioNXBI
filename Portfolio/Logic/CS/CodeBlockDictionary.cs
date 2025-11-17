@@ -14,78 +14,42 @@ namespace Portfolio.Logic.CS
       {
         "UnitTest",
         """
-        public class PlayerInteractor_OnInteract_Range : InputTestFixture
+        public class Deserializer_HandlesJson
         {
-          GameObject stubPlayer;
-          GameObject stubNpc;
-          PlayerInteractor playerInteractor;
-          Action<GameObject, GameObject> interactionHandler;
-          bool playerInteractFired = false;
-
-          [UnitySetUp]
-          public IEnumerator TestSetup()
+          string jsonResourceAPIpath = "DialogData";
+        
+          [TestCase(typeof(DialogData))]
+          public void Deserializer_GivesTypeBackBasedOnClassGeneric(Type type)
           {
-            yield return SceneManager.LoadSceneAsync("GeneralTestScene", LoadSceneMode.Single);
-
-            yield return null;
+            //Arrange
+            SceneManager.LoadScene("GeneralTestScene", LoadSceneMode.Single);
+            Type expectedType = type;
+            Type actualType;
+            Deserializer<DialogData> deserializer = new(jsonResourceAPIpath, SceneManager.GetActiveScene().name);
+            deserializer.ResourcesAPILoader();
+            var jsonTextFile = deserializer.GetCurrentlyAssignedJson();
+        
+            //Act
+            actualType = deserializer.GetDeserializedObject().GetType();
+        
+            //Assert
+            Assert.AreEqual(expectedType, actualType);
           }
-
-          void setupInScene()
+        
+          [TestCase(typeof(DialogData))]
+          public void Deserializer_CanGiveObjectBackFromValidJson(Type type)
           {
-            // Create dummy NPC to interact with
-            stubNpc = new GameObject("StubNpc");
-            stubNpc.AddComponent<NpcInteract>();
-
-            // In the test scene, there is a Player object already
-            stubPlayer = GameObject.Find("Player");
-            Assert.IsNotNull(stubPlayer, "Player GameObject not found in GeneralTestScene");
-
-            if (!stubPlayer.TryGetComponent<PlayerInteractor>(out playerInteractor))
-              playerInteractor = stubPlayer.AddComponent<PlayerInteractor>();
-            // Set interaction distance || make sure its not zero
-            playerInteractor.InteractDistance = 2.0f;
-            // Refresh IInteractableObjects list
-            playerInteractor.InteractableObjects = IInteractable.GetAllInteractableItems();
-
-            // Subscribe to PlayerInteract event to see that when it fires 
-            interactionHandler = (player, interactedObject) => playerInteractFired = true;
-            PlayerInteractor.PlayerInteract += interactionHandler;
-
-            // Set locations outside of interaction range
-            stubPlayer.transform.position = Vector3.zero;
-            stubNpc.transform.position = new Vector2(playerInteractor.InteractDistance, 0) + Vector2.right;
-          }
-
-          [UnityTest]
-          public IEnumerator PlayerInteractor_Range_Mono()
-          {
-            // Arrange
-            setupInScene();
-            var movePositionAmount = new Vector3(2, 0);
-
-            // Act & Assert
-            Assert.IsNotNull(stubPlayer, "Player object not found in scene!");
-            Assert.IsNotNull(stubNpc, "NPC object not found in scene!");
-            Assert.IsNotNull(playerInteractor.InteractableObjects, "No interactables in scene for test");
-
-            Assert.GreaterOrEqual(Vector3.Distance(stubPlayer.transform.position, stubNpc.transform.position), playerInteractor.InteractDistance);
-            Debug.Log($"{playerInteractor.gameObject} shouldn't find anything here ignore the debug log");
-            playerInteractor.OnInteract();
-            Assert.IsFalse(playerInteractFired, "Npc is in range before moving - how did that happen?");
-
-            stubPlayer.transform.position += movePositionAmount;
-            Assert.LessOrEqual(Vector3.Distance(stubPlayer.transform.position, stubNpc.transform.position), playerInteractor.InteractDistance, "Player not in range after moving in test");
-            playerInteractor.OnInteract();
-            Assert.IsTrue(playerInteractFired, "PlayerInteract event did not fire when in range");
-
-            yield return null;
-          }
-
-          [TearDown]
-          public void Teardown()
-          {
-            UnityEngine.Object.Destroy(stubNpc);
-            PlayerInteractor.PlayerInteract -= interactionHandler;
+            //Arrange
+            SceneManager.LoadScene("GeneralTestScene", LoadSceneMode.Single);
+            Deserializer<DialogData> deserializer = new(jsonResourceAPIpath, SceneManager.GetActiveScene().name);
+        
+            deserializer.ResourcesAPILoader();
+            var jsonTextFile = deserializer.GetCurrentlyAssignedJson();
+            //Act
+            var deserializedObject = deserializer.GetDeserializedObject();
+            //Assert
+            Assert.IsNotNull(deserializedObject);
+            Debug.Print(deserializedObject.ToString());
           }
         }
         

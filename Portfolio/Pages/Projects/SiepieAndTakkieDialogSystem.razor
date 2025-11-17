@@ -74,16 +74,33 @@
     </span>
     <img src="/images/projects/siepietakkiedialogsystem/TakkieTakkieDialog.gif" />
 
-    <h3>The whole system also has full test coverage</h3>
+    <h3>Unit testing</h3>
     <span>I was new to testing and had no real clue how a unit test looked. I spent time reviewing different testing
-      frameworks because they were commonly recommended for writing unit tests. That raised two questions: why use a
+      frameworks. Because using a framework seemed to be the norm for writing unit tests. That raised two questions: why
+      use a
       testing framework, and what are the differences between them?</span>
-    <h3>The actual tests I wrote</h3>
-    <img src="/images/projects/TestLists.png" />
-    <CodeBlock CodeString=@UnitTest />
-    <span>For unit testing I chose NUnit because it's already incorporated with Unity's testing framework. Without this
-      integration I wouldn't have the testing UI in Unity. Although learning a different framework like xUnit can be
-      useful, the Unity Test Framework (UTF) is fully integrated with NUnit.</span>
+    <h3>What I learnt</h3>
+    <span>Testing frameworks are used because they can handle things for you.
+      They give more detailed reports on test results, have built-in assertions, and generally have some sort of editor
+      integration.
+      Most of the time they also have syntax that encourges the AAA pattern which makes tests easier to read and modify.
+      So it's not necessary to use a testing framework, but it can make writing and maintaining tests easier.
+      As for the question about differences between frameworks I compared NUnit, MSTest and xUnit.
+      There weren't any significant differences in my eyes.
+      MSTest was intergrated with Visual Studio but lacked some features that the other two had.
+      xUnit was the recommendation of many people with it's more modern syntax and small library but it wasn't
+      intergrated with Unity's testing framework.
+      So I settled on NUnit.
+    </span>
+    <h3>What I ended up doing</h3>
+    <span>For this project I applied the test driven development pattern.
+      That meant writing unit tests for every class before writing the acutal implementation of the class.
+      I wrote tests for the Deserializer class, the DialogData class and the NpcDialogPreparer class.
+      Writing the tests first made me look differently at the implementation of the classes.
+      I had to make sure the classes were testable which meant classes had to be more modular, accessible and have less
+      dependencies.
+      It was interesting to learn and I will definitely use unit testing in my bigger proejcts.
+    </span>
   </div>
 </div>
 
