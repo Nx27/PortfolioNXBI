@@ -1,4 +1,4 @@
-﻿@using System.Threading.Tasks
+﻿@* @using System.Threading.Tasks
 @using System.Text
 @inject IJSRuntime JS
 
@@ -76,36 +76,5 @@
 
 
 @code {
-  List<ProjectDetails>? projectDetails;
 
-  protected override async Task OnInitializedAsync()
-  {
-    projectDetails = ProjectDetails.GetAllProjects();
-  }
-
-  Microsoft.AspNetCore.Components.MarkupString getTagString(Dictionary<ProjectDetails.FilterOptions, string[]> tags)
-  {
-    if (tags == null || tags.Count == 0) return new Microsoft.AspNetCore.Components.MarkupString(string.Empty);
-
-    // Iteration order
-    var order = new[] { ProjectDetails.FilterOptions.Frameworks, ProjectDetails.FilterOptions.Languages,
-ProjectDetails.FilterOptions.Software };
-    var lines = new List<string>();
-
-    foreach (var key in order)
-    {
-      if (tags.TryGetValue(key, out var arr) && arr != null)
-      {
-        var values = arr.Where(s => !string.IsNullOrWhiteSpace(s)).ToArray();
-        if (values.Length == 0) continue;
-        // Comma-join values for this category
-        lines.Add(string.Join(", ", values));
-      }
-    }
-
-    // Join categories with a line break; avoid trailing break
-    var result = string.Join("<br/>", lines);
-    return new Microsoft.AspNetCore.Components.MarkupString(result);
-  }
-
-}
+} *@

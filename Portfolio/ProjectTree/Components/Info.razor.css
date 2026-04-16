@@ -1,0 +1,20 @@
+div {
+  border-bottom: var(--PixelBorder) solid var(--Black);
+  height: fit-content;
+  width: fit-content;
+}
+
+.truelySide {
+  text-align: left;
+  border-left: var(--PixelBorder) solid var(--Black);
+}
+
+.falselySide {
+  /*false mean image is on the right*/
+  text-align: right;
+  border-right: var(--PixelBorder) solid var(--Black);
+}
+
+p {
+  padding: var(--PixelBorder);
+}

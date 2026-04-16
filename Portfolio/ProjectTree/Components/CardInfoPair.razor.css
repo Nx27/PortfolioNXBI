@@ -1,0 +1,60 @@
+* {
+  flex-shrink: 0;
+}
+
+#card-info-pair {
+
+  display: grid;
+  grid-template-columns: 45% calc(var(--GeneralMargin)*4) 45%;
+  margin-bottom: var(--GeneralMargin);
+}
+
+div>div {
+  display: flex;
+  align-items: center;
+}
+
+.truelySide>.card-image {
+  grid-column: 1;
+  justify-content: end;
+}
+
+.truelySide>.info {
+  grid-column: 3;
+  color: red;
+  justify-content: start;
+}
+
+.falselySide>.card-image {
+  grid-column: 3;
+  justify-content: start;
+}
+
+.falselySide>.info {
+  grid-column: 1;
+  justify-content: end;
+}
+
+.dividers {
+  height: 100%;
+  grid-column: 2;
+}
+
+span {
+  position: relative;
+  display: block;
+  background-color: var(--Black);
+}
+
+#Horizontal {
+  height: var(--PixelBorder);
+  width: calc(var(--PixelBorder) + 100%);
+}
+
+#Vertical {
+  height: 100%;
+  width: var(--PixelBorder);
+  margin-left: auto;
+  margin-right: auto;
+  right: 50%;
+}

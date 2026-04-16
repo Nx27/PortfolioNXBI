@@ -1,0 +1,9 @@
+<div>
+    <img src="@ProjectDetails.ImageUrl" />
+    <ButtonStickyNote Text="ProjectDetails.Name" />
+    <ButtonStickyNote Text="ProjectDetails.Description" />
+</div>
+@code {
+    [Parameter]
+    public required ProjectDetails ProjectDetails { get; set; }
+}

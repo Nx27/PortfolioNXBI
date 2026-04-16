@@ -1,0 +1,20 @@
+<div id="card-info-pair" class=@(ImageIsLeft ? "truelySide" : "falselySide")>
+  <div class="card-image">
+    <CardImage ProjectDetails=@ProjectDetails />
+  </div>
+  <div class="dividers">
+    <span id="Horizontal" />
+    <span id="Vertical" />
+  </div>
+  <div class="info">
+    <Info ImageIsLeft=@ImageIsLeft ProjectDetails=@ProjectDetails />
+  </div>
+
+</div>
+
+
+
+@code {
+  [Parameter] public required bool ImageIsLeft { get; set; }
+  [Parameter] public required ProjectDetails ProjectDetails { get; set; }
+}

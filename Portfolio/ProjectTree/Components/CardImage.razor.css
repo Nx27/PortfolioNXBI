@@ -1,0 +1,9 @@
+img {
+    width: 30vw;
+    border: var(--PixelBorder) solid var(--Black);
+}
+
+.ProjectDetails:hover {
+    filter: brightness(80%);
+    cursor: pointer;
+}
