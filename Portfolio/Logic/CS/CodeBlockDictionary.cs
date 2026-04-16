@@ -236,16 +236,14 @@ namespace Portfolio.Logic.CS
       },
       {
         "staticwebconfig",
-        "        \"\"\"\r\n" +
-   "        {\r\n" +
-   "          \"navigati" +
+   "{\r\n" +
+   "  \"navigati" +
    "onFallback\": {\r\n" +
-   "          \"rewrite" +
+   "    \"rewrite" +
    "\": \"/index.html\"" +
    "\r\n" +
-   "          }\r\n" +
-   "        }\r\n\r\n" +
-   "        \"\"\""
+   "    }\r\n" +
+   "}"
       }
     };
   }
