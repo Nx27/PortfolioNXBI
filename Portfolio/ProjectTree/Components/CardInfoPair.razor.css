@@ -9,10 +9,10 @@
   margin-bottom: var(--GeneralMargin);
 }
 
-div>div {
-  display: flex;
-  align-items: center;
-}
+    #card-info-pair > div {
+        display: flex;
+        align-items: center;
+    }
 
 .truelySide>.card-image {
   grid-column: 1;

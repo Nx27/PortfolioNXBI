@@ -3,7 +3,20 @@ img {
     border: var(--PixelBorder) solid var(--Black);
 }
 
+.CardImage, .Text{
+    display: flex;
+    flex-direction: column;
+}
+
 .ProjectDetails:hover {
     filter: brightness(80%);
     cursor: pointer;
 }
+.Text{
+    position:relative;
+    bottom:0;
+}
+
+    .Text > ::deep div {
+        width: fit-content
+    }
