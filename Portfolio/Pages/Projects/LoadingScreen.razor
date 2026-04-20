@@ -1,0 +1,42 @@
+﻿@page "/Projects/LoadingScreen"
+<div class="ProjectPage">
+  <DefaultProjectHeading CurrentProjectURL="Projects/LoadingScreen" />
+  <div class="ProjectDescription">
+    <div>
+      <h3>Project description</h3>
+      <span>
+        My second and way smaller project at Birungi Studio was a loading screen. The one that was used before we
+        implemented mine was one on an artificial timer. That meant it just always waited 3 seconds before continuing.
+        It was implemented this way because there was nothing to load yet. Now with my reworked chunk system there is
+        something to wait on however.
+      </span>
+    </div>
+    <CodeBlock CodeString="@loadingScreenInterface" />
+    <span>
+      I decided that even though the system was currently only for the chunk system, it should probably still be generic
+      since more systems might require loading in the future. So I decided on a sequential loading method. It first
+      loads the scene. When the scene has loaded it looks for scripts implementing the loading interface.
+    </span>
+    <CodeBlock CodeString="@loadingScreenSceneLoad" />
+    <span>
+      Then the script collects those and waits for them.
+    </span>
+    <CodeBlock CodeString="@loadingScreenYieldAll" />
+    <span>
+      When its done loading it fires an event so other scripts that are dependent on the loaded scripts can react and
+      execute their own logic.
+    </span>
+    <CodeBlock CodeString="@loadingScreenEvent" />
+    <span>
+      And thus a short but effective loading screen with an aggregating pattern was born.
+    </span>
+  </div>
+</div>
+
+@code
+{
+  string loadingScreenInterface = CodeBlockDictionary.CodeBlocks["loadingScreenInterface"];
+  string loadingScreenSceneLoad = CodeBlockDictionary.CodeBlocks["loadingScreenSceneLoad"];
+  string loadingScreenYieldAll = CodeBlockDictionary.CodeBlocks["loadingScreenYieldAll"];
+  string loadingScreenEvent = CodeBlockDictionary.CodeBlocks["loadingScreenEvent"];
+}

@@ -1,0 +1,74 @@
+﻿@page "/Projects/ChunkSystemRefactor"
+<div class="ProjectPage">
+  <DefaultProjectHeading CurrentProjectURL="Projects/LoadingScreen" />
+  <div class="ProjectDescription">
+    <div>
+      <h3>Project description</h3>
+      <span>
+        This might be the biggest refactor I've ever done (with over 560 changed files, 26,887 additions and 42,427
+        deletions). If you wanna read the whole page you might want to sit down.
+        The chunk system was the first system I wrote at Birungi Studio. I'm quite proud of it.
+        It's a very contained system as I used assembly definition files.
+        I wrote it in a way that the actual difference wasn't noticable for my designer.
+        The "APIs" of the system stayed the same so to say.
+        Except for the backend ofcourse. I improved and recoupled the code wherever I thought necessary.
+      </span>
+    </div>
+
+    <h3>Decoupling</h3>
+    <span>
+      The original chunk system was kind of hard to read through. With over 50+ fields between two classes with all the
+      logic in it.
+      I concluded that reading through all the dependencies and mapping them beore I went to work wasn't worth it.
+      So I wrapped the whole system in an assembly definition. This way I could instantly see that there was alot of
+      code that depended
+      on the system.
+      I replaced those dependencies with NotImplementedExceptions or changed them entirely if I saw a quick solution for
+      it.
+    </span>
+    <h3>The refactor plan</h3>
+    <span>
+      Since the original system wasn't exactly S.O.L.I.D. I decided to start with a more single responsibility approach.
+      I also split the internal logic from the "API" of the system. The API of the system was also the part where the
+      logic got it's data from.
+      So it ended up looking something like this:
+    </span>
+    <img src="/images/projects/refactorchunksystem/mermaid-diagram-2026-04-20-203749.png" />
+    <span>
+      That makes ChunkLogic.Components the API part and ChunkLogic the internal part.
+    </span>
+    <h3>Automation of ChunkData gathering</h3>
+    <span>
+      The old system existed of a ScriptableObject (which is a unity data object) and a difficulty script (per
+      difficulty you needed one). Both needed
+      to be filled out manually.
+      I reduced it to one manual field: the
+      biomes. (On the left mine on the right the originals)</span>
+    <div class="ImageGrid">
+      <img class="first" src="/images/projects/refactorchunksystem/ChunkDataAPI.png" />
+      <img class="second" src="/images/projects/refactorchunksystem/OldChunkDataManual.png" />
+    </div>
+    <span>
+      When ran my system now outputs something like this:
+    </span>
+    <img src="/images/projects/refactorchunksystem/ChunkDataOutput.png" />
+    <h3>The ChunkPool class</h3>
+    <span>
+      One of the flaws of the previous system was that the instantiation of the chunks was compositionally done through
+      the ChunkLogic component and not async. This meant that the whole system wasn't batch loadable or awaitable. The
+      new ChunkPool loader was written with both of those things in mind:
+    </span>
+    <CodeBlock CodeString="@SetupChunkPool" />
+    <span>
+      It is now fully async and batch loadable. It also has a callback for when it's done loading so other systems can
+      react to it.
+    </span>
+    <h3>Collider Trimmer</h3>
+  </div>
+</div>
+
+@code
+{
+  string SetupChunkPool = CodeBlockDictionary.CodeBlocks["SetupChunkPool"];
+
+}

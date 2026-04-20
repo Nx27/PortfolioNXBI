@@ -244,7 +244,29 @@ namespace Portfolio.Logic.CS
    "\r\n" +
    "    }\r\n" +
    "}"
+      },
+      {
+        "loadingScreenInterface",
+        "public interface ILoadable\n{\n    public bool IsInitialized { get; }\n    public event Action CompletedInit;\n}\n"
+},
+      {
+        "loadingScreenSceneLoad",
+        "yield return SceneManager.LoadSceneAsync(_sceneName, LoadSceneMode.Single);"
       }
+      ,
+      {
+        "loadingScreenYieldAll",
+        "List<ILoadable> subscribableObjects = new();\n        int finished = 0;\n        int totalLoadables = 0;\n        foreach (GameObject gameObject in UnityEngine.Object.FindObjectsByType<GameObject>(FindObjectsSortMode.None))\n            if (gameObject.TryGetComponent<ILoadable>(out var subscribableObject))\n                if (!subscribableObject.IsInitialized)\n                {\n                    totalLoadables++;\n                    Coroutine _c = CoroutineRunner.Run(aggregate(subscribableObject));\n                    if (subscribableObject.IsInitialized)\n                    {\n                        finished++;\n                        CoroutineRunner.Stop(_c);\n                    }\n\n                    subscribableObjects.Add(subscribableObject);\n                }\n\n        Debug.Log($\"Total loadables: {totalLoadables}\");\n        Debug.Log(\"Got items\");\n\n        IEnumerator aggregate(ILoadable loadable)\n        {\n            bool done = false;\n\n            void completionChecker()\n            {\n                done = true;\n            }\n\n            loadable.CompletedInit += completionChecker;\n\n            if (loadable.IsInitialized)\n            {\n                Debug.Log(\"Broke aggregation early\");\n                loadable.CompletedInit -= completionChecker;\n                finished++;\n                yield break;\n            }\n\n            yield return new WaitUntil(() => done);\n\n            loadable.CompletedInit -= completionChecker;\n\n            finished++;\n            Debug.Log(\"Finished aggregation\");\n        }\n        Debug.Log($\"Waiting: {finished}/{totalLoadables}\");\n        yield return new WaitUntil(() => finished == totalLoadables);"
+      },
+      {
+        "loadingScreenEvent",
+        "FinishedLoading?.Invoke(subscribableObjects);;"
+      },
+      {
+        "SetupChunkPool",
+        "public IEnumerator SetupChunkPool(Biome biome = Biome.AllBiomes)\n{\n    if (_chunks != null)\n    {\n        yield break;\n    }\n\n    GameObject[] _resourceChunks;\n    _chunks = new();\n    foreach (Biome singleBiome in BiomeExtension.AllBiomes)\n    {\n        GameObject _biomeSortObject = new(singleBiome.ToString());\n        _biomeSortObject.transform.SetParent(ChunkContainer.transform);\n        if (biome.HasFlag(singleBiome))\n        {\n            _chunks.Add(singleBiome, new());\n            _resourceChunks = Resources.LoadAll<GameObject>($\"{ResourcesPath}/{singleBiome}\");\n            for (int i = 0; i < _resourceChunks.Length; i++)\n            {\n                IChunkData _chunkComponent;\n                if (!_resourceChunks[i].TryGetComponent(out _chunkComponent))\n                {\n                    Debug.LogWarning($\"Expected component {_chunkComponent} on preloaded chunk \'{_resourceChunks[i].name}\' but it was missing.\");\n                    continue;\n                }\n\n                yield return StartCoroutine(setReferences(_chunkComponent, _biomeSortObject.transform));\n            }\n        }\n    }\n\n    _resourceChunks = Resources.LoadAll<GameObject>($\"{ResourcesPath}/{TransitionalChunkPath}\");\n\n    foreach (Biome transitionBiome in _resourceChunks.Select(b => b.GetComponent<IChunkData>().Biomes).Distinct())\n    {\n        _chunks.Add(transitionBiome, new());\n    }\n\n    foreach (GameObject resourceChunk in _resourceChunks)\n    {\n        IChunkData _component = resourceChunk.GetComponent<IChunkData>();\n        yield return StartCoroutine(setReferences(_component, ChunkContainer.transform));\n    }\n\n    if (_chunks == null || _chunks.Count == 0)\n        throw new System.Exception(\"ChunkPool used the Resource folder but found nothing\");\n    CompletedInit?.Invoke();\n    IsInitialized = true;\n}"
+      }
+
     };
   }
 }
