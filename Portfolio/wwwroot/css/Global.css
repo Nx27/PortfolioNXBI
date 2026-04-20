@@ -8,11 +8,21 @@
   src: url('/fonts/MedodicaRegular.otf');
 }
 
+@font-face {
+  font-family: alt-generalText;
+  src: url('/fonts/Helvetica.ttf');
+}
+
+@font-face {
+  font-family: alt-headers;
+  src: url('/fonts/Helvetica-Bold.ttf');
+}
+
 * {
   text-decoration: none;
- -webkit-font-smoothing: none;
- -moz-osx-font-smoothing: unset;
-  font-size: 1.5vw; 
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+  font-size: 1.5vw;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -28,11 +38,34 @@
   background-color: var(--LightBlue);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: headers;
 }
-html{
+
+*.Alt-Font {
+  font-family: alt-headers;
+}
+
+*.Alt-Font h1,
+*.Alt-Font h2,
+*.Alt-Font h3,
+*.Alt-Font h4,
+*.Alt-Font h5,
+*.Alt-Font h6 {
+  font-family: alt-generalText;
+}
+
+html {
   min-height: 100vh;
+}
+
+.Construction {
+  display: none;
 }
 
 body {
@@ -43,8 +76,11 @@ body {
   width: calc(100% - 8px);
   overflow: auto;
 }
+
 @media (max-width: 480px) {
-  .RightSideSpace, .LeftSideSpace {
+
+  .RightSideSpace,
+  .LeftSideSpace {
     display: none !important;
   }
 
@@ -52,32 +88,38 @@ body {
     font-size: 5vw;
   }
 
-  .Logo{
+  .Logo {
     display: none;
   }
 
-  .Header{
+  .Header {
     height: auto !important;
   }
 
-  .Menu{
+  .Menu {
     flex-wrap: wrap;
     flex-direction: column;
   }
 
-  .Content{
+  .Content {
     width: 100% !important;
   }
 
-  .Logos{
+  .Logos {
     padding-bottom: var(--GeneralMargin);
   }
+
   .ProjectsTimeline {
     display: none !important;
   }
 
+  .Construction {
+    display: default !important;
+  }
+
 }
 
-.PixelArt{
+
+.PixelArt {
   image-rendering: pixelated;
 }
