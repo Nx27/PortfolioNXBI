@@ -6,21 +6,20 @@
       <h3>Project description</h3>
       <span>
         This might be the biggest refactor I've ever done (with over 560 changed files, 26,887 additions and 42,427
-        deletions). If you wanna read the whole page you might want to sit down.
+        deletions).
         The chunk system was the first system I wrote at Birungi Studio. I'm quite proud of it.
         It's a very contained system as I used assembly definition files.
-        I wrote it in a way that the actual difference wasn't noticable for my designer.
+        I wrote it in a way that the actual difference wasn't noticeable for my designer.
         The "APIs" of the system stayed the same so to say.
-        Except for the backend ofcourse. I improved and recoupled the code wherever I thought necessary.
+        Except for the backend of course. I improved and recoupled the code wherever I thought necessary.
       </span>
     </div>
-
     <h3>Decoupling</h3>
     <span>
       The original chunk system was kind of hard to read through. With over 50+ fields between two classes with all the
       logic in it.
-      I concluded that reading through all the dependencies and mapping them beore I went to work wasn't worth it.
-      So I wrapped the whole system in an assembly definition. This way I could instantly see that there was alot of
+      I concluded that reading through all the dependencies and mapping them before I went to work wasn't worth it.
+      So I wrapped the whole system in an assembly definition. This way I could instantly see that there were a lot of
       code that depended
       on the system.
       I replaced those dependencies with NotImplementedExceptions or changed them entirely if I saw a quick solution for
@@ -30,7 +29,7 @@
     <span>
       Since the original system wasn't exactly S.O.L.I.D. I decided to start with a more single responsibility approach.
       I also split the internal logic from the "API" of the system. The API of the system was also the part where the
-      logic got it's data from.
+      logic got its data from.
       So it ended up looking something like this:
     </span>
     <img src="/images/projects/refactorchunksystem/mermaid-diagram-2026-04-20-203749.png" />
@@ -39,7 +38,7 @@
     </span>
     <h3>Automation of ChunkData gathering</h3>
     <span>
-      The old system existed of a ScriptableObject (which is a unity data object) and a difficulty script (per
+      The old system existed of a ScriptableObject (which is a Unity data object) and a difficulty script (per
       difficulty you needed one). Both needed
       to be filled out manually.
       I reduced it to one manual field: the
@@ -50,7 +49,7 @@
       <img class="second" src="/images/projects/refactorchunksystem/OldChunkDataManual.png" />
     </div>
     <span>
-      When ran my system now outputs something like this:
+      When run my system now outputs something like this:
     </span>
     <img src="/images/projects/refactorchunksystem/ChunkDataOutput.png" />
     <h3>The ChunkPool class</h3>
@@ -67,8 +66,8 @@
     <h3>Collider Trimmer</h3>
     <span>
       A bit later in time I decided to take a look at the farm chunk prefabs.
-      My designer had complained about fps drops when the game entered the farm biome.
-      When I toggled the collider visibility I wasn't suprised anymore (all the green objects are colliders).
+      My designer had complained about FPS drops when the game entered the farm biome.
+      When I toggled the collider visibility I wasn't surprised anymore (all the green objects are colliders).
     </span>
     <img src="/images/projects/refactorchunksystem/BeforeColliderTrim.png"/>
     <span>
@@ -76,7 +75,7 @@
       At first I tried fixing them up manually. 
       Shortly after I realised that that wasn't worth my time. 
       I would be better off writing <NavLink href="/Projects/ColliderTrimmerScript">an automation script for it</NavLink> (the script is too big to nicely fit in the site).
-      Now automated it took me only a day to permanently fix this for the game. 
+      Once automated, it took me only a few seconds to permanently fix this for the game. 
       Instead of what would've been three days and my sanity...
       Here is a preview of what the system did to the same but trimmed by my system:
     </span>
