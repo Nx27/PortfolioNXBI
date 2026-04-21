@@ -43,7 +43,8 @@
       difficulty you needed one). Both needed
       to be filled out manually.
       I reduced it to one manual field: the
-      biomes. (On the left mine on the right the originals)</span>
+      biomes. (On the left mine on the right the originals)
+    </span>
     <div class="ImageGrid">
       <img class="first" src="/images/projects/refactorchunksystem/ChunkDataAPI.png" />
       <img class="second" src="/images/projects/refactorchunksystem/OldChunkDataManual.png" />
@@ -64,11 +65,26 @@
       react to it.
     </span>
     <h3>Collider Trimmer</h3>
+    <span>
+      A bit later in time I decided to take a look at the farm chunk prefabs.
+      My designer had complained about fps drops when the game entered the farm biome.
+      When I toggled the collider visibility I wasn't suprised anymore (all the green objects are colliders).
+    </span>
+    <img src="/images/projects/refactorchunksystem/BeforeColliderTrim.png"/>
+    <span>
+      So I asked my designer if I was allowed to edit the chunks and when I got the green flag on that I went to work.
+      At first I tried fixing them up manually. 
+      Shortly after I realised that that wasn't worth my time. 
+      I would be better off writing <NavLink href="/Projects/ColliderTrimmerScript">an automation script for it</NavLink> (the script is too big to nicely fit in the site).
+      Now automated it took me only a day to permanently fix this for the game. 
+      Instead of what would've been three days and my sanity...
+      Here is a preview of what the system did to the same but trimmed by my system:
+    </span>
+    <img src="/images/projects/refactorchunksystem/AfterColliderTrim.png" />
   </div>
 </div>
 
 @code
 {
   string SetupChunkPool = CodeBlockDictionary.CodeBlocks["SetupChunkPool"];
-
 }
