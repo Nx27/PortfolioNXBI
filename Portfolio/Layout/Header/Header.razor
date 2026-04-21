@@ -1,11 +1,17 @@
-﻿<div class="Header">
+﻿@inject FontChanger FontChanger
+
+<div class="Header @(FontChanger.AltFont ? "Alt-Font" : "")">
   <div class="Logo">
-    </div>
+  </div>
   <div class="Menu">
     @foreach (var item in MenuItems)
     {
       <NavLink href="@item"><h6>@item</h6></NavLink>
     }
+  </div>
+  <div>
+    <span>Toggle font</span>
+    <input type="checkbox" @bind=FontChanger.AltFont/>
   </div>
 </div>
 
@@ -14,8 +20,8 @@
 @code {
   [Parameter] public string LogoLink { get; set; } = "./images/logos/Artboard1.svg";
   [Parameter] public List<string> MenuItems { get; set; } = new ();
-
-  protected override async Task OnInitializedAsync()
+  
+  protected override void OnInitialized()
   {
     MenuItems = new List<string> { "Home", "Projects", "About" };
   }

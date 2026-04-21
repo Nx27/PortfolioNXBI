@@ -28,3 +28,21 @@ img {
   width: 75%;
   gap: var(--FrameWidth);
 }
+
+input {
+  position: relative;
+  bottom: -5px;
+  border: var(--PixelBorder) solid var(--Black);
+  appearance: none;
+  width: 1.5vw;
+  height: 1.5vw;
+  cursor: pointer;
+}
+
+  input:checked {
+    background-color: var(--DarkerBlue);
+  }
+
+  input:hover{
+    background-color: var(--DarkerBlue);
+  }
