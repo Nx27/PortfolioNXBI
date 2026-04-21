@@ -47,18 +47,18 @@ h6 {
   font-family: headers;
 }
 
-*.Alt-Font {
-  font-family: alt-headers;
-}
-
-*.Alt-Font h1,
-*.Alt-Font h2,
-*.Alt-Font h3,
-*.Alt-Font h4,
-*.Alt-Font h5,
-*.Alt-Font h6 {
+.Alt-Font *{
   font-family: alt-generalText;
 }
+
+  .Alt-Font h1,
+  .Alt-Font h2,
+  .Alt-Font h3,
+  .Alt-Font h4,
+  .Alt-Font h5,
+  .Alt-Font h6 {
+    font-family: alt-headers;
+  }
 
 html {
   min-height: 100vh;
@@ -114,7 +114,7 @@ body {
   }
 
   .Construction {
-    display: default !important;
+    display: block !important;
   }
 
 }
