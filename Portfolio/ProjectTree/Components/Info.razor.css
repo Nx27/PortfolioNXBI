@@ -18,3 +18,7 @@ div {
 p {
   padding: var(--PixelBorder);
 }
+
+::deep h3{
+  text-wrap: nowrap;
+}

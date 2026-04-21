@@ -1,10 +1,10 @@
-<div class="CardImage">
+<NavLink href="@ProjectDetails.Url" class="CardImage">
     <img src="@ProjectDetails.ImageUrl" />
     <div class="Text">
-        <ButtonStickyNote Text="ProjectDetails.Name" />
-        <ButtonStickyNote Text="ProjectDetails.Description" />
+        <ButtonStickyNote Text="@ProjectDetails.Name" />
+        <ButtonStickyNote Text="@ProjectDetails.Description" />
     </div>
-</div>
+</NavLink>
 @code {
     [Parameter]
     public required ProjectDetails ProjectDetails { get; set; }

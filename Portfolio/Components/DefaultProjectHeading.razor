@@ -10,8 +10,8 @@
   [Parameter] public string CurrentProjectURL { get; set; }
   ProjectDetails projectDetails;
 
-  protected override void OnInitialized()
+  protected async override Task OnInitializedAsync()
   {
-    projectDetails = ProjectDetails.GetAllProjects().Find(x => x.Url == CurrentProjectURL);
+    projectDetails = (await ProjectDetails.GetAllProjects()).Find(x => x.Url == CurrentProjectURL);
   }
 }

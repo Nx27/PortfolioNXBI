@@ -3,10 +3,9 @@
 }
 
 #card-info-pair {
-
+  --OverallWidth: calc(calc(100% - calc(var(--GeneralMargin)*4))/2);
   display: grid;
-  grid-template-columns: 45% calc(var(--GeneralMargin)*4) 45%;
-  margin-bottom: var(--GeneralMargin);
+  grid-template-columns: var(--OverallWidth) calc(var(--GeneralMargin)*4) var(--OverallWidth);
 }
 
     #card-info-pair > div {

@@ -1,22 +1,45 @@
 img {
-    width: 30vw;
-    border: var(--PixelBorder) solid var(--Black);
+  margin-top: var(--GeneralMargin);
+  margin-bottom: var(--GeneralMargin);
+  border: var(--PixelBorder) solid var(--Black);
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  width: 100%;
 }
 
-.CardImage, .Text{
-    display: flex;
-    flex-direction: column;
+img:hover{
+  filter: brightness(80%);
+}
+
+.CardImage, .Text {
+  display: flex;
+  flex-direction: column;
 }
 
 .ProjectDetails:hover {
-    filter: brightness(80%);
-    cursor: pointer;
-}
-.Text{
-    position:relative;
-    bottom:0;
+  filter: brightness(80%);
+  cursor: pointer;
 }
 
-    .Text > ::deep div {
-        width: fit-content
-    }
+.Text {
+  position: relative;
+  bottom: 0;
+}
+
+  .Text > ::deep div {
+    position: absolute;
+    width: fit-content;
+    left: -0.5em;
+  }
+
+  .Text > ::deep:first-child {
+    bottom: 4em;
+  }
+
+  .Text > ::deep:last-child {
+    bottom: 1.5em;
+  }
+
+::deep h3 {
+  text-wrap: nowrap;
+}

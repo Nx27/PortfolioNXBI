@@ -15,3 +15,15 @@
   margin-bottom: 10px;
   width: 400px;
 }
+
+.Text > h1 {
+  text-align: center;
+  margin: var(--GeneralMargin) 0 var(--GeneralMargin) 0;
+}
+
+.Text > span {
+  display: block;
+  height: var(--PixelBorder);
+  background-color: var(--Black);
+  margin-bottom: var(--GeneralMargin) ;
+}

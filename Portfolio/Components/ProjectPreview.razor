@@ -1,12 +1,42 @@
-﻿@inject HttpClient Http
+﻿@using Portfolio.ProjectTree.Components
 
 <div class="ProjectPreview">
-  <h3>@Title</h3>
-  <div class="ProjectPreviewContent">
-    
+  <div class="Text">
+     <h1>My completed projects so far</h1>
+     <span/>
+  </div>
+  @foreach (var project in projectDetails)
+  {
+      <CardInfoPair ImageIsLeft="@GetBool()" ProjectDetails="@project" />
+  }
+  <div class="Text">
+    <h1>Start of my career</h1>
   </div>
 </div>
 
 @code {
-  [Parameter] public string Title { get; set; } = "My Projects";
+  List<ProjectDetails>? projectDetails;
+  bool isLeft = false;
+  bool runOnce =true;
+
+  protected async override Task OnInitializedAsync()
+  {
+    projectDetails = (await ProjectDetails.GetAllProjects()).ToList();
+    runOnceMethod();
+  }
+
+  void runOnceMethod()
+  {
+    if (runOnce)
+    {
+      projectDetails.Reverse();
+      runOnce = false;
+    }
+  }
+
+  bool GetBool()
+  {
+    isLeft = !isLeft;
+    return isLeft;
+  }
 }
