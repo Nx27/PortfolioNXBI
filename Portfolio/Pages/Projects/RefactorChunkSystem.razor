@@ -1,6 +1,6 @@
 ﻿@page "/Projects/ChunkSystemRefactor"
 <div class="ProjectPage">
-  <DefaultProjectHeading CurrentProjectURL="Projects/LoadingScreen" />
+  <DefaultProjectHeading CurrentProjectURL="Projects/ChunkSystemRefactor" />
   <div class="ProjectDescription">
     <div>
       <h3>Project description</h3>
@@ -69,18 +69,23 @@
       My designer had complained about FPS drops when the game entered the farm biome.
       When I toggled the collider visibility I wasn't surprised anymore (all the green objects are colliders).
     </span>
-    <img src="/images/projects/refactorchunksystem/BeforeColliderTrim.png"/>
+    <img src="/images/projects/refactorchunksystem/BeforeColliderTrim.png" />
     <span>
       So I asked my designer if I was allowed to edit the chunks and when I got the green flag on that I went to work.
-      At first I tried fixing them up manually. 
-      Shortly after I realised that that wasn't worth my time. 
-      I would be better off writing <NavLink href="/Projects/ColliderTrimmerScript">an automation script for it</NavLink> (the script is too big to nicely fit in the site).
-      Once automated, it took me only a few seconds to permanently fix this for the game. 
-      Instead of what would've been three days and my sanity...
-      Here is a preview of what the system did to the same but trimmed by my system:
-    </span>
-    <img src="/images/projects/refactorchunksystem/AfterColliderTrim.png" />
-  </div>
+      At first I tried fixing them up manually.
+      Shortly after I realised that that wasn't worth my time.
+      I would be better off writing <NavLink href="/Projects/ColliderTrimmerScript">an automation script for it
+    </NavLink> (the script is too big to nicely fit in the site).
+    Once automated, it took me only a few seconds to permanently fix this for the game.
+    Instead of what would've been three days and my sanity...
+    Here is a preview of what the system did to the same but trimmed by my system:
+  </span>
+  <img src="/images/projects/refactorchunksystem/AfterColliderTrim.png" />
+  <span>
+    Sadly I can't completely go into the details of the code any further as I wrote the code for Birungi. I am however
+    allowed to talk about it. Just sent me a message :).
+  </span>
+</div>
 </div>
 
 @code
