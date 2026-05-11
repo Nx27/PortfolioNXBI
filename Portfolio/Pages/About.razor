@@ -17,69 +17,8 @@
   <img src="/images/nora@0.5x.png" />
 </div>
 
-<div class="Details">
-  <details id="Likes" class="FoldoutContent">
-    <summary>+ Likes</summary>
-    <ul>
-      @foreach (var like in likes)
-      {
-        <li>
-          <details>
-            <summary>@like.Key</summary>
-            <p>@like.Value</p>
-          </details>
-        </li>
-      }
-    </ul>
-  </details>
-
-  <details id="Dislikes" class="FoldoutContent">
-    <summary>- Dislikes</summary>
-    <ul>
-      @foreach (var dislike in dislikes)
-      {
-        <li>
-          <details>
-            <summary>@dislike.Key</summary>
-            <p>@dislike.Value</p>
-          </details>
-        </li>
-      }
-    </ul>
-  </details>
-</div>
-
 @code {
   DateTime birthday = new DateTime(2006, 3, 27);
   int age;
-  string spotifyAPILenght = "1848";
-  Dictionary<string, string> likes = new Dictionary<string, string>
-{
-{"+ Gaming", "I currently play Satisfactory, Factorio, Hollow knight (Silksong too) and Apex Ledgends"},
-{"+ Programming","I like the challenge more than the \"what\" I'm making. Currently learning assembly because it's closer to the hardware than anything else."},
-{"+ Working out", "I find it relaxing when do my workout circuits." },
-{"+ Learning new languages", "I enjoy understanding different people in their own native language. It also passively widens your understanding of the language you're learning."},
-{"+ Spending time with friends","I like going out or doing a group activity from time to time, even though I'm not a huge chatter, I like listening to other peoples stories."},
-{"+ Drawing", "I'm definitely still an amateur but I'm actively learning anatomy in order to draw the characters I find cool in my own style." },
-{"+ Sushi", "Yum :)" }
-};
-
-  Dictionary<string, string> dislikes = new Dictionary<string, string>
-{
-{"- Laziness", "I see people on social media all the time. I can't judge but it does bother me. Do they not think that they're wasting time?"},
-{"- Poor communication", "I hate it when I'm left wondering if someone is going to show up to an appointment. ESPECIALLY when they don't show up after I asked them multiple times."},
-{"- False promises", "Don't promise a deadline you know you won't make. Nobody gains from this."},
-{"- Cheese", "Just.. no thanks" }
-};
-
-  protected override void OnInitialized()
-  {
-    age = DateTime.Today.Year - birthday.Year;
-    likes.Add("+ Music", $"Muse and Imagine dragons and The Script are by favorite bands but that doesn't end there I have a total of {spotifyAPILenght} in my playlist. There isn't a day that I'm not listening to music");
-  }
-
-  void showContent()
-  {
-
-  }
+  string spotifyAPILenght = "1886";
 }
