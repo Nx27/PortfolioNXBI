@@ -21,4 +21,12 @@
   DateTime birthday = new DateTime(2006, 3, 27);
   int age;
   string spotifyAPILenght = "1886";
+
+  protected override void OnInitialized()
+  {
+    age = DateTime.Now.Year - birthday.Year;
+    // If the birthday hasn't occurred yet this year, subtract one from the age
+    if (DateTime.Now.DayOfYear < birthday.DayOfYear)
+      age--;
+  }
 }
